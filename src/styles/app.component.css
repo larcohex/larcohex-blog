@@ -1,0 +1,54 @@
+#body
+{
+  height: 85%;
+}
+
+#footer
+{
+  height: 15%;
+}
+
+.nav-link-div
+{
+  display: table;
+}
+
+.nav-link
+{
+  display: table-cell;
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 100%;
+  vertical-align: middle;
+  font-stretch: extra-condensed;
+}
+
+.nav-link:visited
+{
+  color: #fff;
+}
+
+.hvr-focus, .hvr-focus:active, .hvr-focus:focus, .hvr-focus:hover
+{
+  transition: opacity .2s ease-out;
+  -moz-transition: opacity .2s ease-out;
+  -webkit-transition: opacity .2s ease-out;
+  -o-transition: opacity .2s ease-out;
+}
+
+.hvr-focus
+{
+  opacity: 0.5;
+}
+
+.hvr-focus:active, .hvr-focus:focus, .hvr-focus:hover
+{
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+#powered-by
+{
+  font-size: 1.5em;
+}
