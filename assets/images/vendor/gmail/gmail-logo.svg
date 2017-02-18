@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="512"
+   preserveAspectRatio="xMidYMid"
+   viewBox="0 0 512 512"
+   width="512"
+   id="svg4318"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="gmail-logo.svg">
+  <metadata
+     id="metadata4334">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
+     id="namedview4332"
+     showgrid="false"
+     inkscape:zoom="0.4609375"
+     inkscape:cx="-3.2542373"
+     inkscape:cy="256"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4318" />
+  <defs
+     id="defs4320">
+    <style
+       id="style4322">
+      .cls-1 {
+        fill: #3498db;
+      }
+
+      .cls-2 {
+        fill: #000;
+        opacity: 0.3;
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g
+     id="g4324">
+    <circle
+       class="cls-1"
+       cx="256"
+       cy="256"
+       r="256"
+       id="circle4326"
+       style="fill:#c71610;fill-opacity:1" />
+    <path
+       class="cls-3"
+       d="M383.998,180.311 C383.357,193.133 383.998,333.349 383.998,333.349 C383.998,333.349 380.899,348.320 367.612,348.320 C322.686,348.320 164.803,350.313 145.809,349.984 C128.222,349.805 127.998,333.349 127.998,333.349 L127.998,181.975 C127.540,164.803 149.609,163.677 149.609,163.677 L367.375,162.014 C367.375,162.014 384.639,167.490 383.998,180.311 ZM377.645,186.257 C377.645,186.257 373.932,168.268 358.695,169.203 C342.564,179.801 256.052,243.624 256.052,243.624 L153.408,170.753 C153.408,170.753 133.956,169.897 134.458,186.257 C134.200,200.721 134.458,331.999 134.458,331.999 C134.458,331.999 138.839,343.376 159.724,342.852 L161.303,215.716 L256.052,279.284 L349.221,217.266 L350.800,342.852 C373.617,342.852 377.645,331.999 377.645,331.999 L377.645,186.257 Z"
+       id="path4330" />
+  </g>
+</svg>
