@@ -47,8 +47,18 @@
   cursor: pointer;
 }
 
-
-#powered-by
+@media (min-width: 768px)
 {
-  font-size: 1.5em;
+  #powered-by
+  {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 768px)
+{
+  #powered-by
+  {
+    font-size: 0.7em;
+  }
 }

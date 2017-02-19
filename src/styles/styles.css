@@ -152,6 +152,7 @@ body
 
 #background-img
 {
+  background: url(../assets/images/background/background-desktop.jpg) center center no-repeat;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -160,7 +161,6 @@ body
   z-index: -1;
   display: none;
 }
-
 
 #app
 {
