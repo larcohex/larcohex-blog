@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../assets/fonts/Uni Sans/uni-sans.thin-caps.eot");
+  src: url("../assets/fonts/Uni Sans/uni-sans.thin-caps.eot?#iefix") format("embedded-opentype"),
+  url("../assets/fonts/Uni Sans/uni-sans.thin-caps.woff") format("woff"),
+  url("../assets/fonts/Uni Sans/uni-sans.thin-caps.ttf")  format("truetype"),
+  url("../assets/fonts/Uni Sans/uni-sans.thin-caps.svg#svgFontName") format("svg");
+}
+
 html
 {
   height: 100%;
@@ -14,7 +23,7 @@ body
   background-size: cover;
   background-color: #001a27;
   color: #fff;
-  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
   overflow: hidden;
 }
 
