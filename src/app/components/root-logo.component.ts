@@ -3,10 +3,11 @@ declare let d3:any;
 
 @Component({
   moduleId: module.id,
-  selector: "logo",
-  templateUrl: "../../templates/components/logo.component.html"
+  selector: "root-logo",
+  templateUrl: "../../templates/components/root-logo.component.html"
 })
-export class LogoComponent implements OnInit {
+
+export class RootLogoComponent implements OnInit {
   ngOnInit() {
     let path = d3.select ("#path3342");
     let rotation = function() {

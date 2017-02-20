@@ -23,11 +23,11 @@ var LogoComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: "logo",
-            templateUrl: "../../templates/components/logo.component.html"
-        }), 
+            templateUrl: "../../templates/components/root-logo.component.html"
+        }),
         __metadata('design:paramtypes', [])
     ], LogoComponent);
     return LogoComponent;
 }());
 exports.LogoComponent = LogoComponent;
-//# sourceMappingURL=logo.component.js.map
+//# sourceMappingURL=root-logo.component.js.maps.map

@@ -6,7 +6,8 @@ import { AppRoutingModule }   from "./modules/app-routing.module";
 import { AppComponent }       from "./app.component";
 import { RootComponent }      from "./components/root.component";
 import { BlogRootComponent }  from "./components/blog-root.component";
-import { LogoComponent } from "./components/logo.component";
+import { RootLogoComponent }  from "./components/root-logo.component";
+import { BlogLogoComponent }  from "./components/blog-logo.component";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LogoComponent } from "./components/logo.component";
     AppComponent,
     RootComponent,
     BlogRootComponent,
-    LogoComponent
+    RootLogoComponent,
+    BlogLogoComponent
   ],
   bootstrap:    [ AppComponent ]
 })

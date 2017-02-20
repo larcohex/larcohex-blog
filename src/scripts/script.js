@@ -5,8 +5,3 @@
     history.replaceState (null, null, redirect);
   }
 })();
-
-$(document).ready (function() {
-  $("#background-img").fadeIn (500);
-  $("#app").fadeIn (1000);
-});

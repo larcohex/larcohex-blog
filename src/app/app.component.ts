@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   moduleId: module.id,
@@ -8,4 +9,12 @@ import { Component } from "@angular/core";
     "../styles/app.component.css"
   ]
 })
-export class AppComponent  { }
+export class AppComponent  {
+  currentUrl: string;
+
+  constructor(
+    private router: Router
+  ) {
+    this.router.events.subscribe((nav:any) => this.currentUrl = nav.url);
+  }
+}
