@@ -4,6 +4,21 @@
   height: 100%;
 }
 
+@media (max-width: 767px)
+{
+  .root-button
+  {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 768px) {
+  .root-button
+  {
+    font-size: 1.5em;
+  }
+}
+
 .root-button
 {
   display: inline-block;
@@ -14,7 +29,6 @@
   color: inherit;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
-  font-size: 1.5em;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
