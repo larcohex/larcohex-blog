@@ -20,7 +20,7 @@
       "styles": [
         "styles/styles.css",
         "../node_modules/normalize.css/normalize.css",
-        "../node_modules/unsemantic/assets/stylesheets/unsemantic-grid-responsive.css",
+        "styles/vendor/unsemantic-grid-responsive-tablet.css",
         "../node_modules/hover.css/css/hover-min.css"
       ],
       "scripts": [
