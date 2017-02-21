@@ -22,6 +22,8 @@ import { BlogLogoComponent }  from "./components/blog-logo.component";
     RootLogoComponent,
     BlogLogoComponent
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
