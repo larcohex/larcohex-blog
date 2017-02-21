@@ -26,6 +26,11 @@ body
   font-family: "Nunito", Arial, Helvetica, sans-serif;
 }
 
+svg
+{
+  pointer-events: none;
+}
+
 @media (max-width: 767px) and (orientation: portrait) {
   .mobile-portrait-h-100
   {
@@ -375,7 +380,6 @@ body
 .v-center
 {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -455,4 +459,9 @@ body
 .hidden
 {
   display: none;
+}
+
+.flex-end
+{
+  justify-content: flex-end;
 }
