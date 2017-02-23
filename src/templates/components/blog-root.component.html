@@ -1,3 +1,4 @@
+<loading *ngIf="loading"></loading>
 <div id="blog-header" class="h-20 mobile-portrait-h-20 mobile-landscape-h-20 tablet-portrait-h-20 tablet-landscape-h-20 grid-container">
   <div class="h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 grid-10 mobile-portrait-grid-30 mobile-landscape-grid-10 tablet-portrait-grid-10 tablet-landscape-grid-10 inline-block">
     <a routerLink="/">
@@ -6,8 +7,31 @@
   </div>
   <div class="h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 grid-70 mobile-portrait-grid-30 mobile-landscape-grid-70 tablet-portrait-grid-70 tablet-landscape-grid-70 inline-block"></div>
   <div class="h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 grid-20 mobile-portrait-grid-40 mobile-landscape-grid-20 tablet-portrait-grid-20 tablet-landscape-grid-20 v-center flex-end">
-    <a class="blog-header-link margin-right-10">Olympiad</a>
-    <a class="blog-header-link margin-left-10 margin-right-10" routerLink="/blog">Blog</a>
+    <a class="blog-header-link margin-right-10">Олимпиада</a>
+    <a class="blog-header-link margin-left-10 margin-right-10" routerLink="/blog">Блог</a>
   </div>
 </div>
-<div id="content" class="h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80"></div>
+
+<div id="content" class="h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80 scrollable">
+  <div class="h-20 tablet-portrait-h-20 tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
+
+  <div class="grid-container h-60 tablet-portrait-h-60 tablet-landscape-h-60 mobile-portrait-h-100 mobile-landscape-h-60">
+    <div class="grid-10 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 hide-on-mobile-landscape hide-on-mobile-portrait"></div>
+    <div class="grid-20 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-80 mobile-landscape-h-100 tablet-portrait-grid-33 tablet-landscape-grid-33 mobile-portrait-grid-100 mobile-landscape-grid-33">
+      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[0]]" [post]="(posts | async)[triplet[0]]"></post-ref>
+    </div>
+    <div class="hide-on-desktop mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape"></div>
+    <div class="grid-10 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 hide-on-mobile-landscape hide-on-mobile-portrait"></div>
+    <div class="grid-20 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-80 mobile-landscape-h-100 tablet-portrait-grid-33 tablet-landscape-grid-33 mobile-portrait-grid-100 mobile-landscape-grid-33">
+      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[1]]" [post]="(posts | async)[triplet[1]]"></post-ref>
+    </div>
+    <div class="hide-on-desktop mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape"></div>
+    <div class="grid-10 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 hide-on-mobile-landscape hide-on-mobile-portrait"></div>
+    <div class="grid-20 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-80 mobile-landscape-h-100 tablet-portrait-grid-33 tablet-landscape-grid-33 mobile-portrait-grid-100 mobile-landscape-grid-33">
+      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[2]]" [post]="(posts | async)[triplet[2]]"></post-ref>
+    </div>
+    <div class="hide-on-desktop mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape"></div>
+    <div class="grid-10 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 hide-on-mobile-landscape hide-on-mobile-portrait"></div>
+  </div>
+  <div class="h-20 tablet-portrait-h-20 tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
+</div>

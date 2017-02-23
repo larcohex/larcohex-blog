@@ -1,0 +1,36 @@
+.post-thumbnail
+{
+  border: 1px solid rgba(0, 26, 39, 0.1);
+}
+
+.post-img
+{
+  background: center bottom no-repeat;
+  background-size: cover;
+}
+
+.post-header
+{
+  color: #001a27;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.post-pre
+{
+  color: #a8a8a8;
+}
+
+@media (max-width: 768px) and (orientation: landscape)
+{
+  .post-header
+  {
+    font-size: 0.8em;
+  }
+
+  .post-pre
+  {
+    font-size: 0.6em;
+  }
+}

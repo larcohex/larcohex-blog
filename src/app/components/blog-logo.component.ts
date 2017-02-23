@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-declare let d3:any;
 
 @Component({
   moduleId: module.id,

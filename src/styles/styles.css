@@ -296,6 +296,11 @@ svg
     height: 70%;
   }
 
+  .h-65
+  {
+    height: 65%;
+  }
+
   .h-60
   {
     height: 60%;
@@ -375,6 +380,7 @@ svg
 .h-center
 {
   text-align: center;
+  justify-content: center;
 }
 
 .v-center
@@ -436,7 +442,7 @@ svg
 
 #background-img
 {
-  background: url(../assets/images/background/background-desktop.jpg) center center no-repeat;
+  background: url(../assets/images/background/background.jpg) center center no-repeat;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -464,4 +470,35 @@ svg
 .flex-end
 {
   justify-content: flex-end;
+}
+
+.no-margin
+{
+  margin: 0;
+}
+
+.white-bg
+{
+  background-color: #ffffff;
+}
+
+.no-padding
+{
+  padding: 0;
+}
+
+.v-bottom
+{
+  display: flex;
+  align-items: flex-end;
+}
+
+.absolute
+{
+  position: absolute;
+}
+
+.scrollable
+{
+  overflow: auto;
 }

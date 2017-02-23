@@ -6,6 +6,7 @@
 #footer
 {
   height: 15%;
+  z-index: 2;
 }
 
 .nav-link-div

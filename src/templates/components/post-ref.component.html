@@ -1,0 +1,11 @@
+<a class="inline-block pointer w-100 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 mobile-landscape-h-100 post-thumbnail">
+  <div class="post-img h-70 tablet-portrait-h-70 tablet-landscape-h-70 mobile-portrait-h-70 mobile-landscape-h-70 w-100" [ngStyle]="{'background-image': 'url(' + post.img + ')' }"></div>
+  <div class="h-30 tablet-portrait-h-30 tablet-landscape-h-30 mobile-portrait-h-30 mobile-landscape-h-30 w-100 white-bg">
+    <div class="h-35 tablet-portrait-h-35 tablet-landscape-h-35 mobile-portrait-h-35 mobile-landscape-h-35 w-100 h-center v-bottom">
+      <p class="post-pre no-margin">{{ post.subtitle }}</p>
+    </div>
+    <div class="h-65 tablet-portrait-h-65 tablet-landscape-h-65 mobile-portrait-h-65 mobile-landscape-h-65 w-100 h-center v-center">
+      <h5 class="post-header no-margin">{{ post.title }}</h5>
+    </div>
+  </div>
+</a>
