@@ -10,6 +10,7 @@ import { RootLogoComponent }  from "./components/root-logo.component";
 import { BlogLogoComponent }  from "./components/blog-logo.component";
 import { PostRefComponent } from "./components/post-ref.component";
 import { LoadingComponent } from "./components/loading.component";
+import { GeneralService } from "./services/general.service";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAVsjYldatrx_T2J3gr53qqhmG6l8Bl8r0",
@@ -33,6 +34,9 @@ export const firebaseConfig = {
     RootLogoComponent,
     BlogLogoComponent,
     LoadingComponent
+  ],
+  providers: [
+    GeneralService
   ],
   bootstrap: [
     AppComponent

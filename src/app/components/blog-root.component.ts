@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { AngularFire, FirebaseListObservable } from "angularfire2";
+import { GeneralService } from "../services/general.service";
 
 declare let database:any;
 
@@ -13,11 +14,14 @@ declare let database:any;
 })
 export class BlogRootComponent {
   posts: FirebaseListObservable<any[]>;
-  triplet: number[] = [0, 1, 2];
   loading: boolean = true;
 
   constructor (af: AngularFire) {
     this.posts = af.database.list ("/postrefs");
     this.posts.subscribe(() => this.loading = false);
+  }
+
+  orientation(): string {
+    return GeneralService.orientation();
   }
 }

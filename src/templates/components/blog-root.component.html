@@ -12,25 +12,29 @@
   </div>
 </div>
 
-<div id="content" class="h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80 scrollable">
-  <div class="h-20 tablet-portrait-h-20 tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
+<div id="content" class="h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80 no-wrap" [ngClass]="{'scrollable-x': orientation() === 'landscape', 'scrollable-y': orientation() === 'portrait'}">
+  <div class="h-20 hide-on-tablet-portrait tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
 
-  <div class="grid-container h-60 tablet-portrait-h-60 tablet-landscape-h-60 mobile-portrait-h-100 mobile-landscape-h-60">
-    <div class="grid-5 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 hide-on-mobile-landscape hide-on-mobile-portrait"></div>
-    <div class="grid-30 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-80 mobile-landscape-h-100 tablet-portrait-grid-33 tablet-landscape-grid-33 mobile-portrait-grid-100 mobile-landscape-grid-33">
-      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[0]]" [post]="(posts | async)[triplet[0]]"></post-ref>
+  <div class="grid-container h-60 tablet-portrait-h-100 tablet-landscape-h-60 mobile-portrait-h-100 mobile-landscape-h-60 no-wrap">
+    <div id="landscape" class="w-100 h-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap" *ngIf="orientation() === 'landscape'">
+      <div class="grid-5 tablet-landscape-grid-5 h-100 hide-on-tablet-portrait tablet-landscape-h-100 hide-on-mobile-landscape hide-on-mobile-portrait inline-block float-none"></div>
+      <div class="grid-30 h-100 tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-30 mobile-landscape-grid-33 inline-block float-none" *ngFor="let post of posts | async">
+        <post-ref [post]="post"></post-ref>
+      </div>
+      <div class="grid-5 tablet-landscape-grid-5 h-100 hide-on-tablet-portrait tablet-landscape-h-100 hide-on-mobile-landscape hide-on-mobile-portrait inline-block float-none"></div>
     </div>
-    <div class="hide-on-desktop mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape"></div>
-    <div class="grid-30 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-80 mobile-landscape-h-100 tablet-portrait-grid-33 tablet-landscape-grid-33 mobile-portrait-grid-100 mobile-landscape-grid-33">
-      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[1]]" [post]="(posts | async)[triplet[1]]"></post-ref>
+
+
+    <div id="portrait" class="tablet-portrait-h-100 mobile-portrait-h-100" *ngIf="orientation() === 'portrait'">
+      <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+      <template ngFor let-post [ngForOf]="posts | async" let-i="index">
+        <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
+          <post-ref [post]="post"></post-ref>
+        </div>
+        <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+      </template>
     </div>
-    <div class="hide-on-desktop mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape"></div>
-    <div class="grid-30 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-80 mobile-landscape-h-100 tablet-portrait-grid-33 tablet-landscape-grid-33 mobile-portrait-grid-100 mobile-landscape-grid-33">
-      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[2]]" [post]="(posts | async)[triplet[2]]"></post-ref>
-    </div>
-    <div class="hide-on-desktop mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape"></div>
-    <div class="grid-5 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 hide-on-mobile-landscape hide-on-mobile-portrait"></div>
-    <div class="grid-5 h-100 tablet-portrait-h-100 tablet-landscape-h-100 mobile-portrait-h-100 hide-on-mobile-landscape hide-on-mobile-portrait"></div>
   </div>
+
   <div class="h-20 tablet-portrait-h-20 tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
 </div>

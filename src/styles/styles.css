@@ -502,3 +502,30 @@ svg
 {
   overflow: auto;
 }
+
+.scrollable-x
+{
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.scrollable-y
+{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.no-wrap
+{
+  white-space: nowrap;
+}
+
+.normal
+{
+  white-space: normal;
+}
+
+.float-none
+{
+  float: none;
+}
