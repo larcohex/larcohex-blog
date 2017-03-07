@@ -2,8 +2,6 @@ import { Component } from "@angular/core";
 import { AngularFire, FirebaseListObservable } from "angularfire2";
 import { GeneralService } from "../services/general.service";
 
-declare let database:any;
-
 @Component({
   moduleId: module.id,
   selector: "[blog-root]",

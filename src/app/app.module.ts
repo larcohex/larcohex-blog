@@ -11,6 +11,8 @@ import { BlogLogoComponent }  from "./components/blog-logo.component";
 import { PostRefComponent } from "./components/post-ref.component";
 import { LoadingComponent } from "./components/loading.component";
 import { GeneralService } from "./services/general.service";
+import { BlogPostComponent } from "./components/blog-post.component";
+import { SafeHtmlPipe } from "./pipes/safeHtml.pipe";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAVsjYldatrx_T2J3gr53qqhmG6l8Bl8r0",
@@ -33,7 +35,9 @@ export const firebaseConfig = {
     BlogRootComponent,
     RootLogoComponent,
     BlogLogoComponent,
-    LoadingComponent
+    LoadingComponent,
+    BlogPostComponent,
+    SafeHtmlPipe
   ],
   providers: [
     GeneralService
