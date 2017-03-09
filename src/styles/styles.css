@@ -591,6 +591,11 @@ p.background--complex
     height: 90%;
   }
 
+  .h-85
+  {
+    height: 85%;
+  }
+
   .h-80
   {
     height: 80%;
