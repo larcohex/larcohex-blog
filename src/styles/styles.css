@@ -36,21 +36,6 @@ p
   color: #001a27;
 }
 
-p.background--light
-{
-  color: #001a27;
-}
-
-p.background--dark
-{
-  color: #ffffff;
-}
-
-p.background--complex
-{
-  color: #ffffff;
-}
-
 @media (max-width: 767px) and (orientation: portrait) {
   .mobile-portrait-h-100
   {

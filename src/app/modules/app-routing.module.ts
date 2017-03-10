@@ -5,7 +5,7 @@ import { BlogRootComponent }    from "../components/blog-root.component";
 import { BlogPostComponent } from "../components/blog-post.component";
 
 const routes: Routes = [
-  { path: "posts/:id", component: BlogPostComponent },
+  { path: "posts/:ref", component: BlogPostComponent },
   { path: "blog", component: BlogRootComponent },
   { path: "", component: RootComponent }
 ];

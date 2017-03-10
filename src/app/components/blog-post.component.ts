@@ -35,9 +35,9 @@ export class BlogPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => this.af.database.object ("/posts/" + params["id"]).subscribe((post) => {
+    this.route.params.subscribe((params: Params) => this.af.database.object ("/posts/" + params["ref"]).subscribe((post) => {
       this.post = converter.makeHtml (post.text);
-      this.af.database.object ("/postrefs/" + params["id"]).subscribe((postRef) => {
+      this.af.database.object ("/postrefs/" + post.id).subscribe((postRef) => {
         this.postRef = postRef;
         this.loading = false;
       });

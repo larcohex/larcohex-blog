@@ -1,18 +1,20 @@
-import { NgModule }           from "@angular/core";
-import { BrowserModule }      from "@angular/platform-browser";
-import { AngularFireModule }  from "angularfire2";
-import { AppRoutingModule }   from "./modules/app-routing.module";
+import { NgModule }             from "@angular/core";
+import { BrowserModule }        from "@angular/platform-browser";
+import { AngularFireModule }    from "angularfire2";
+import { AppRoutingModule }     from "./modules/app-routing.module";
 
-import { AppComponent }       from "./app.component";
-import { RootComponent }      from "./components/root.component";
-import { BlogRootComponent }  from "./components/blog-root.component";
-import { RootLogoComponent }  from "./components/root-logo.component";
-import { BlogLogoComponent }  from "./components/blog-logo.component";
-import { PostRefComponent } from "./components/post-ref.component";
-import { LoadingComponent } from "./components/loading.component";
-import { GeneralService } from "./services/general.service";
-import { BlogPostComponent } from "./components/blog-post.component";
-import { SafeHtmlPipe } from "./pipes/safeHtml.pipe";
+import { AppComponent }         from "./app.component";
+import { RootComponent }        from "./components/root.component";
+import { BlogRootComponent }    from "./components/blog-root.component";
+import { RootLogoComponent }    from "./components/root-logo.component";
+import { BlogLogoComponent }    from "./components/blog-logo.component";
+import { PostRefComponent }     from "./components/post-ref.component";
+import { LoadingComponent }     from "./components/loading.component";
+import { GeneralService }       from "./services/general.service";
+import { BlogPostComponent }    from "./components/blog-post.component";
+import { SafeHtmlPipe }         from "./pipes/safeHtml.pipe";
+import { NextButtonComponent }  from "./components/next-button.component";
+import { PrevButtonComponent } from "./components/prev-button.component";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAVsjYldatrx_T2J3gr53qqhmG6l8Bl8r0",
@@ -37,6 +39,8 @@ export const firebaseConfig = {
     BlogLogoComponent,
     LoadingComponent,
     BlogPostComponent,
+    NextButtonComponent,
+    PrevButtonComponent,
     SafeHtmlPipe
   ],
   providers: [
