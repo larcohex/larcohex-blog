@@ -3,10 +3,17 @@ import { RouterModule, Routes } from "@angular/router";
 import { RootComponent }        from "../components/root.component";
 import { BlogRootComponent }    from "../components/blog-root.component";
 import { BlogPostComponent } from "../components/blog-post.component";
+import { OlympiadRootComponent } from "../components/olympiad-root.component";
+import { BlogPostListComponent } from "../components/blog-post-list.component";
 
 const routes: Routes = [
-  { path: "posts/:ref", component: BlogPostComponent },
-  { path: "blog", component: BlogRootComponent },
+  { path: "blog", component: BlogRootComponent,
+    children: [
+      { path: "", component: BlogPostListComponent },
+      { path: ":ref", component: BlogPostComponent }
+    ]
+  },
+  { path: "olympiad", component: OlympiadRootComponent },
   { path: "", component: RootComponent }
 ];
 

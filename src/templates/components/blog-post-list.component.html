@@ -1,0 +1,44 @@
+<div class="h-20 hide-on-tablet-portrait tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
+
+<div class="grid-container h-60 tablet-portrait-h-100 tablet-landscape-h-60 mobile-portrait-h-100 mobile-landscape-h-60 no-wrap">
+
+  <div id="landscape" class="w-100 h-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap" *ngIf="orientation() === 'landscape'">
+    <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block" (click)="prev()">
+      <prev-button></prev-button>
+    </div>
+
+    <div class="grid-30 h-100" *ngIf="!mobile()">
+      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[0]]" [post]="(posts | async)[triplet[0]]"></post-ref>
+    </div>
+    <div class="grid-30 h-100" *ngIf="!mobile()">
+      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[1]]" [post]="(posts | async)[triplet[1]]"></post-ref>
+    </div>
+    <div class="grid-30 h-100" *ngIf="!mobile()">
+      <post-ref *ngIf="(posts | async) && (posts | async)[triplet[2]]" [post]="(posts | async)[triplet[2]]"></post-ref>
+    </div>
+
+    <div class="w-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap scrollable-x" *ngIf="mobile()" >
+      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none" *ngFor="let post of posts | async">
+        <post-ref [post]="post"></post-ref>
+      </div>
+    </div>
+
+    <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block pointer" (click)="next()">
+      <next-button></next-button>
+    </div>
+  </div>
+
+
+  <div id="portrait" class="tablet-portrait-h-100 mobile-portrait-h-100" *ngIf="orientation() === 'portrait'">
+    <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+    <template ngFor let-post [ngForOf]="posts | async" let-i="index">
+      <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
+        <post-ref [post]="post"></post-ref>
+      </div>
+      <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+    </template>
+  </div>
+
+</div>
+
+<div class="h-20 tablet-portrait-h-20 tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>

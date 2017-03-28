@@ -9,12 +9,18 @@ import { BlogRootComponent }    from "./components/blog-root.component";
 import { RootLogoComponent }    from "./components/root-logo.component";
 import { BlogLogoComponent }    from "./components/blog-logo.component";
 import { PostRefComponent }     from "./components/post-ref.component";
-import { LoadingComponent }     from "./components/loading.component";
+import { BlogLoadingComponent }     from "./components/blog-loading.component";
 import { GeneralService }       from "./services/general.service";
 import { BlogPostComponent }    from "./components/blog-post.component";
 import { SafeHtmlPipe }         from "./pipes/safeHtml.pipe";
 import { NextButtonComponent }  from "./components/next-button.component";
 import { PrevButtonComponent } from "./components/prev-button.component";
+import { BlogHeaderComponent } from "./components/blog-header.component";
+import { OlympiadHeaderComponent } from "./components/olympiad-header.component";
+import { OlympiadLoadingComponent } from "./components/olympiad-loading.component";
+import { OlympiadLogoComponent } from "./components/olympiad-logo.component";
+import { OlympiadRootComponent } from "./components/olympiad-root.component";
+import { BlogPostListComponent } from "./components/blog-post-list.component";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAVsjYldatrx_T2J3gr53qqhmG6l8Bl8r0",
@@ -34,10 +40,16 @@ export const firebaseConfig = {
     AppComponent,
     RootComponent,
     PostRefComponent,
+    OlympiadHeaderComponent,
+    OlympiadLoadingComponent,
+    OlympiadLogoComponent,
+    OlympiadRootComponent,
+    BlogHeaderComponent,
     BlogRootComponent,
+    BlogPostListComponent,
     RootLogoComponent,
     BlogLogoComponent,
-    LoadingComponent,
+    BlogLoadingComponent,
     BlogPostComponent,
     NextButtonComponent,
     PrevButtonComponent,

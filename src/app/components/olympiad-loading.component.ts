@@ -3,13 +3,13 @@ declare let d3:any;
 
 @Component({
   moduleId: module.id,
-  selector: "loading",
-  templateUrl: "../../templates/components/loading.component.html",
+  selector: "olympiad-loading",
+  templateUrl: "../../templates/components/olympiad-loading.component.html",
   styleUrls: [
-    "../../styles/components/loading.component.css"
+    "../../styles/components/olympiad-loading.component.css"
   ]
 })
-export class LoadingComponent implements OnInit {
+export class OlympiadLoadingComponent implements OnInit {
   ngOnInit() {
     let path = d3.select ("#path1111");
     let rotation = function() {

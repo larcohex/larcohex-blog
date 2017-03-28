@@ -36,6 +36,13 @@ p
   color: #001a27;
 }
 
+@media (max-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
 @media (max-width: 767px) and (orientation: portrait) {
   .mobile-portrait-h-100
   {
