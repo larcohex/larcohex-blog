@@ -24,6 +24,7 @@ body
   background-color: #f4f4f4;
   color: #fff;
   font-family: "Nunito", Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
 }
 
 svg
@@ -47,6 +48,11 @@ p
   .mobile-portrait-h-100
   {
     height: 100%;
+  }
+
+  .mobile-portrait-h-95
+  {
+    height: 95%;
   }
 
   .mobile-portrait-h-90
@@ -181,6 +187,11 @@ p
     height: 100%;
   }
 
+  .mobile-landscape-h-95
+  {
+    height: 95%;
+  }
+
   .mobile-landscape-h-90
   {
     height: 90%;
@@ -311,6 +322,11 @@ p
   .tablet-portrait-h-100
   {
     height: 100%;
+  }
+
+  .tablet-portrait-h-95
+  {
+    height: 95%;
   }
 
   .tablet-portrait-h-90
@@ -445,6 +461,11 @@ p
     height: 100%;
   }
 
+  .tablet-landscape-h-95
+  {
+    height: 95%;
+  }
+
   .tablet-landscape-h-90
   {
     height: 90%;
@@ -576,6 +597,11 @@ p
   .h-100
   {
     height: 100%;
+  }
+
+  .h-95
+  {
+    height: 95%;
   }
 
   .h-90
