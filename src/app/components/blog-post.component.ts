@@ -16,7 +16,7 @@ declare let converter:any;
 })
 export class BlogPostComponent implements OnInit {
   post: string = "";
-  postRef: Object = {
+  postRef = {
     img: "",
     subtitle: "",
     title: ""

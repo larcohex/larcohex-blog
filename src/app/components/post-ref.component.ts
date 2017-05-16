@@ -9,8 +9,12 @@ import { Component, Input } from "@angular/core";
   ]
 })
 export class PostRefComponent {
-  @Input()
-  post: Object;
+  @Input() post = {
+    ref: "",
+    img: "",
+    subtitle: "",
+    title: ""
+  };
   JSON: any;
   constructor() {
     this.JSON = JSON;
