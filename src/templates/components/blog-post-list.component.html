@@ -33,12 +33,12 @@
 
   <div id="portrait" class="tablet-portrait-h-100 mobile-portrait-h-100" *ngIf="orientation() === 'portrait'">
     <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
-    <template ngFor let-post [ngForOf]="posts | async" let-i="index">
+    <ng-template ngFor let-post [ngForOf]="posts | async" let-i="index">
       <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
         <post-ref [post]="post"></post-ref>
       </div>
       <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
-    </template>
+    </ng-template>
   </div>
 
 </div>

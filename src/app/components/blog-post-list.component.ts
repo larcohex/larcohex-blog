@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { AngularFire, FirebaseListObservable } from "angularfire2";
 import { GeneralService } from "../services/general.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 
 @Component({
   moduleId: module.id,
@@ -21,11 +21,11 @@ export class BlogPostListComponent {
 
 
   constructor (
-    af: AngularFire,
+    db: AngularFireDatabase,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.posts = af.database.list ("/postrefs");
+    this.posts = db.list ("/postrefs");
     this.posts.subscribe((posts) => {
       this.length = posts.length;
       this.route.queryParams.subscribe ((params) => {

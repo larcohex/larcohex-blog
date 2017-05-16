@@ -9,6 +9,7 @@ declare let d3:any;
     "../../styles/components/blog-loading.component.css"
   ]
 })
+
 export class BlogLoadingComponent implements OnInit {
   ngOnInit() {
     let path = d3.select ("#path1111");

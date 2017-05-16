@@ -1,9 +1,9 @@
 import { Component, OnInit }        from "@angular/core";
-import { AngularFire }              from "angularfire2";
 import { GeneralService }           from "../services/general.service";
 import { ActivatedRoute, Params }   from "@angular/router";
 import { Location }                 from '@angular/common';
 import { DomSanitizer }             from "@angular/platform-browser";
+import { AngularFireDatabase } from "angularfire2/database";
 declare let converter:any;
 
 @Component({
@@ -25,7 +25,7 @@ export class BlogPostComponent implements OnInit {
 
   constructor (
     private route: ActivatedRoute,
-    private af: AngularFire,
+    private db: AngularFireDatabase,
     private location: Location,
     private sanitizer: DomSanitizer
   ) {}
@@ -35,9 +35,9 @@ export class BlogPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => this.af.database.object ("/posts/" + params["ref"]).subscribe((post) => {
+    this.route.params.subscribe((params: Params) => this.db.object ("/posts/" + params["ref"]).subscribe((post) => {
       this.post = converter.makeHtml (post.text);
-      this.af.database.object ("/postrefs/" + post.id).subscribe((postRef) => {
+      this.db.object ("/postrefs/" + post.id).subscribe((postRef) => {
         this.postRef = postRef;
         this.loading = false;
       });

@@ -1,6 +1,7 @@
 import { NgModule }             from "@angular/core";
 import { BrowserModule }        from "@angular/platform-browser";
 import { AngularFireModule }    from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AppRoutingModule }     from "./modules/app-routing.module";
 
 import { AppComponent }         from "./app.component";
@@ -21,20 +22,14 @@ import { OlympiadLoadingComponent } from "./components/olympiad-loading.componen
 import { OlympiadLogoComponent } from "./components/olympiad-logo.component";
 import { OlympiadRootComponent } from "./components/olympiad-root.component";
 import { BlogPostListComponent } from "./components/blog-post-list.component";
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyAVsjYldatrx_T2J3gr53qqhmG6l8Bl8r0",
-  authDomain: "github-page-6a1d7.firebaseapp.com",
-  databaseURL: "https://github-page-6a1d7.firebaseio.com",
-  storageBucket: "github-page-6a1d7.appspot.com",
-  messagingSenderId: "578829824495"
-};
+import { environment } from "../environments/environment";
 
 @NgModule({
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AppRoutingModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AppRoutingModule,
+    AngularFireDatabaseModule
   ],
   declarations: [
     AppComponent,
