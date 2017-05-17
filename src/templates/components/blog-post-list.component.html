@@ -4,7 +4,7 @@
 
   <div id="landscape" class="w-100 h-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap" *ngIf="general.orientation() === 'landscape'">
     <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block pointer" (click)="prev()" [ngClass]="{'postref-nav-button-disabled': page - 1 < 0}">
-      <prev-button></prev-button>
+      <prev-button *ngIf="page - 1 >= 0"></prev-button>
     </div>
 
     <div class="grid-30 h-100" *ngIf="!mobile()" [@animation]="state">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block pointer" (click)="next()" [ngClass]="{'postref-nav-button-disabled': (page + 1) * 3 >= length}">
-      <next-button></next-button>
+      <next-button *ngIf="(page + 1) * 3 < length"></next-button>
     </div>
   </div>
 
