@@ -24,7 +24,7 @@ body
   background-color: #f4f4f4;
   color: #fff;
   font-family: "Nunito", Arial, Helvetica, sans-serif;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 svg

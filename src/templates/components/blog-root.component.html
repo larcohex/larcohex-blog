@@ -1,5 +1,7 @@
+<blog-loading *ngIf="general.loading"></blog-loading>
+
 <blog-header></blog-header>
 
-<div id="content" class="h-85 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80" [ngClass]="{'scrollable-y': orientation() === 'portrait'}">
+<div id="content" class="h-85 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80" [ngClass]="{'scrollable-y': general.orientation() === 'portrait'}">
   <router-outlet></router-outlet>
 </div>

@@ -23,13 +23,15 @@ import { OlympiadLogoComponent } from "./components/olympiad-logo.component";
 import { OlympiadRootComponent } from "./components/olympiad-root.component";
 import { BlogPostListComponent } from "./components/blog-post-list.component";
 import { environment } from "../environments/environment";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,

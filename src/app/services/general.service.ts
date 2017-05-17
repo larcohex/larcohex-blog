@@ -1,5 +1,10 @@
+import { Injectable } from "@angular/core";
+
+@Injectable()
 export class GeneralService {
-  static orientation(): string {
+  loading: boolean = true;
+
+  public orientation(): string {
     if (window.innerHeight > window.innerWidth) {
       return "portrait";
     }
