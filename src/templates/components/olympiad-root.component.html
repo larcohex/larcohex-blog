@@ -1,5 +1,5 @@
-<olympiad-loading *ngIf="loading"></olympiad-loading>
+<olympiad-loading *ngIf="general.loading"></olympiad-loading>
 <olympiad-header></olympiad-header>
 
-<div id="content" class="h-85 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80 no-wrap" [ngClass]="{'scrollable-y': orientation() === 'portrait'}">
+<div id="content" class="h-85 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80 no-wrap" [ngClass]="{'scrollable-y': general.orientation() === 'portrait'}">
 </div>

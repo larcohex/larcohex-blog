@@ -12,8 +12,9 @@ import { GeneralService } from "../services/general.service";
 
 export class OlympiadRootComponent {
   loading: boolean = true;
+  general: GeneralService;
 
-  orientation(): string {
-    return GeneralService.orientation();
+  constructor (general: GeneralService) {
+    this.general = general;
   }
 }

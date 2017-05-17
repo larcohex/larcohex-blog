@@ -14,12 +14,9 @@ export class AppComponent  {
   currentUrl: string;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private general: GeneralService
   ) {
     this.router.events.subscribe((nav:any) => this.currentUrl = nav.url);
-  }
-
-  orientation(): string {
-    return GeneralService.orientation();
   }
 }

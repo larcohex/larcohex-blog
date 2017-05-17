@@ -1,4 +1,4 @@
-import { Component, OnInit }        from "@angular/core";
+import { Component, EventEmitter, OnInit, Output }        from "@angular/core";
 import { GeneralService }           from "../services/general.service";
 import { ActivatedRoute, Params }   from "@angular/router";
 import { Location }                 from '@angular/common';
@@ -21,25 +21,25 @@ export class BlogPostComponent implements OnInit {
     subtitle: "",
     title: ""
   };
-  loading: boolean = true;
+  general: GeneralService;
 
   constructor (
     private route: ActivatedRoute,
     private db: AngularFireDatabase,
     private location: Location,
-    private sanitizer: DomSanitizer
-  ) {}
-
-  orientation(): string {
-    return GeneralService.orientation();
+    private sanitizer: DomSanitizer,
+    general: GeneralService
+  ) {
+    this.general = general;
   }
 
   ngOnInit(): void {
+    this.general.loading = true;
     this.route.params.subscribe((params: Params) => this.db.object ("/posts/" + params["ref"]).subscribe((post) => {
       this.post = converter.makeHtml (post.text);
       this.db.object ("/postrefs/" + post.id).subscribe((postRef) => {
         this.postRef = postRef;
-        this.loading = false;
+        this.general.loading = false;
       });
     }));
   }
