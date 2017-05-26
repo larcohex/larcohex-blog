@@ -11,10 +11,13 @@ export class MathLogoComponent implements OnInit {
     let pi = new SVGMorpheus ("#icon");
     let icons = ["pi", "equals", "three", "point", "one", "four"];
     let i = 1;
-    pi.to (icons[0], {duration: 1000, easing: "cubic-in-out", rotation: "none"});
+    pi.to (icons[0], {duration: 500, easing: "cubic-in-out", rotation: "none"});
     setInterval (function() {
-      pi.to (icons[i], {duration: 1000, easing: "cubic-in-out", rotation: "none"});
-      i = (i + 1) % 6;
+      pi.to ("intermediate", {duration: 500, easing: "cubic-in-out", rotation: "none"});
+      setTimeout (function() {
+        pi.to (icons[i], {duration: 500, easing: "cubic-in-out", rotation: "none"});
+        i = (i + 1) % 6;
+      }, 500);
     }, 1500);
   }
 }

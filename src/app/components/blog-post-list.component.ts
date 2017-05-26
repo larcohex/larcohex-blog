@@ -73,10 +73,10 @@ export class BlogPostListComponent {
 
   prev(): void {
     if (this.page - 1 >= 0) {
-      this.state = "left";
+      this.state = "right";
       --this.page;
       setTimeout (function() {
-        this.state = "right";
+        this.state = "left";
         this.router.navigate([], { queryParams: { page: this.page } });
       }.bind (this), 500)
     }
@@ -84,10 +84,10 @@ export class BlogPostListComponent {
 
   next(): void {
     if ((this.page + 1) * 3 < this.length) {
-      this.state = "right";
+      this.state = "left";
       ++this.page;
       setTimeout (function() {
-        this.state = "left";
+        this.state = "right";
         this.router.navigate([], { queryParams: { page: this.page } });
       }.bind (this), 500);
     }
