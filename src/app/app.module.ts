@@ -7,23 +7,32 @@ import { AppRoutingModule }     from "./modules/app-routing.module";
 import { AppComponent }         from "./app.component";
 import { RootComponent }        from "./components/root.component";
 import { BlogRootComponent }    from "./components/blog-root.component";
-import { RootLogoComponent }    from "./components/root-logo.component";
-import { BlogLogoComponent }    from "./components/blog-logo.component";
+import { RootLogoComponent }    from "./svg/root-logo.component";
+import { BlogLogoComponent }    from "./svg/blog-logo.component";
 import { PostRefComponent }     from "./components/post-ref.component";
-import { BlogLoadingComponent }     from "./components/blog-loading.component";
+import { BlogLoadingComponent }     from "./svg/blog-loading.component";
 import { GeneralService }       from "./services/general.service";
 import { BlogPostComponent }    from "./components/blog-post.component";
 import { SafeHtmlPipe }         from "./pipes/safeHtml.pipe";
-import { NextButtonComponent }  from "./components/next-button.component";
-import { PrevButtonComponent } from "./components/prev-button.component";
 import { BlogHeaderComponent } from "./components/blog-header.component";
 import { OlympiadHeaderComponent } from "./components/olympiad-header.component";
-import { OlympiadLoadingComponent } from "./components/olympiad-loading.component";
-import { OlympiadLogoComponent } from "./components/olympiad-logo.component";
+import { OlympiadLoadingComponent } from "./svg/olympiad-loading.component";
+import { OlympiadLogoComponent } from "./svg/olympiad-logo.component";
 import { OlympiadRootComponent } from "./components/olympiad-root.component";
 import { BlogPostListComponent } from "./components/blog-post-list.component";
 import { environment } from "../environments/environment";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MathLogoComponent } from "./svg/math-logo.component";
+import { PhysicsLogoComponent } from "./svg/physics-logo.component";
+import { BiologyLogoComponent } from "./svg/biology-logo.component";
+import { ChemistryLogoComponent } from "./svg/chemistry-logo.component";
+import { CSLogoComponent } from "./svg/cs-logo.component";
+import { OlympiadListComponent } from "./components/olympiad-list.component";
+import { OlympiadSubjectComponent } from "./components/olympiad-subject.component";
+import { BlogNextButtonComponent } from "./svg/blog-next-button.component";
+import { BlogPrevButtonComponent } from "./svg/blog-prev-button.component";
+import { OlympiadPrevButtonComponent } from "./svg/olympiad-prev-button.component";
+import { OlympiadNextButtonComponent } from "./svg/olympiad-next-button.component";
 
 @NgModule({
   imports: [
@@ -41,6 +50,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     OlympiadLoadingComponent,
     OlympiadLogoComponent,
     OlympiadRootComponent,
+    OlympiadListComponent,
+    OlympiadSubjectComponent,
     BlogHeaderComponent,
     BlogRootComponent,
     BlogPostListComponent,
@@ -48,8 +59,15 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     BlogLogoComponent,
     BlogLoadingComponent,
     BlogPostComponent,
-    NextButtonComponent,
-    PrevButtonComponent,
+    BlogNextButtonComponent,
+    BlogPrevButtonComponent,
+    OlympiadPrevButtonComponent,
+    OlympiadNextButtonComponent,
+    MathLogoComponent,
+    PhysicsLogoComponent,
+    BiologyLogoComponent,
+    ChemistryLogoComponent,
+    CSLogoComponent,
     SafeHtmlPipe
   ],
   providers: [

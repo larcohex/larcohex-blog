@@ -4,7 +4,7 @@ declare let d3:any;
 @Component({
   moduleId: module.id,
   selector: "blog-loading",
-  templateUrl: "../../templates/components/blog-loading.component.html",
+  templateUrl: "../../templates/svg/blog-loading.component.html",
   styleUrls: [
     "../../styles/components/blog-loading.component.css"
   ]

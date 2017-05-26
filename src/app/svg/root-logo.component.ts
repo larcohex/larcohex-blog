@@ -4,7 +4,7 @@ declare let d3:any;
 @Component({
   moduleId: module.id,
   selector: "root-logo",
-  templateUrl: "../../templates/components/root-logo.component.html"
+  templateUrl: "../../templates/svg/root-logo.component.html"
 })
 
 export class RootLogoComponent implements OnInit {

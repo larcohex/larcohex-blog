@@ -3,16 +3,16 @@ import { GeneralService } from "../services/general.service";
 
 @Component({
   moduleId: module.id,
-  selector: "[olympiad-root]",
-  templateUrl: "../../templates/components/olympiad-root.component.html",
+  selector: "[olympiad-list]",
+  templateUrl: "../../templates/components/olympiad-list.component.html",
   styleUrls: [
-    "../../styles/components/olympiad-root.component.css"
+    "../../styles/components/olympiad-list.component.css"
   ]
 })
 
-export class OlympiadRootComponent {
+export class OlympiadListComponent {
   general: GeneralService;
-  item: number = 1;
+  item: number = 0;
 
   constructor (general: GeneralService) {
     this.general = general;
@@ -20,13 +20,13 @@ export class OlympiadRootComponent {
 
   prev(): void {
     // animation
-    this.item = this.item - 1 > 0 ? this.item - 1 : this.item;
+    this.item = this.item - 1 >= 0 ? this.item - 1 : 4;
     // animation
   }
 
   next(): void {
     // animation
-    this.item = this.item + 1 < 6 ? this.item + 1 : this.item;
+    this.item = (this.item + 1) % 5;
     // animation
   }
 }

@@ -4,27 +4,27 @@
 
   <div id="landscape" class="w-100 h-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap" *ngIf="general.orientation() === 'landscape'">
     <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block pointer" (click)="prev()" [ngClass]="{'postref-nav-button-disabled': page - 1 < 0}">
-      <prev-button *ngIf="page - 1 >= 0"></prev-button>
+      <blog-prev-button *ngIf="page - 1 >= 0"></blog-prev-button>
     </div>
 
-    <div class="grid-30 h-100" *ngIf="!mobile()" [@animation]="state">
+    <div class="grid-30 h-100" *ngIf="!general.mobile()" [@animation]="state">
       <post-ref *ngIf="(posts | async) && (posts | async)[triplet[0]]" [post]="(posts | async)[triplet[0]]" [tvalue]="triplet[0]" (onChange)="onChange ($event)"></post-ref>
     </div>
-    <div class="grid-30 h-100" *ngIf="!mobile()" [@animation]="state">
+    <div class="grid-30 h-100" *ngIf="!general.mobile()" [@animation]="state">
       <post-ref *ngIf="(posts | async) && (posts | async)[triplet[1]]" [post]="(posts | async)[triplet[1]]" [tvalue]="triplet[1]" (onChange)="onChange ($event)"></post-ref>
     </div>
-    <div class="grid-30 h-100" *ngIf="!mobile()" [@animation]="state">
+    <div class="grid-30 h-100" *ngIf="!general.mobile()" [@animation]="state">
       <post-ref *ngIf="(posts | async) && (posts | async)[triplet[2]]" [post]="(posts | async)[triplet[2]]" [tvalue]="triplet[2]" (onChange)="onChange ($event)"></post-ref>
     </div>
 
-    <div class="w-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap scrollable-x" *ngIf="mobile()" >
+    <div class="w-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap scrollable-x" *ngIf="general.mobile()" >
       <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none" *ngFor="let post of posts | async">
         <post-ref [post]="post"></post-ref>
       </div>
     </div>
 
     <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block pointer" (click)="next()" [ngClass]="{'postref-nav-button-disabled': (page + 1) * 3 >= length}">
-      <next-button *ngIf="(page + 1) * 3 < length"></next-button>
+      <blog-next-button *ngIf="(page + 1) * 3 < length"></blog-next-button>
     </div>
   </div>
 

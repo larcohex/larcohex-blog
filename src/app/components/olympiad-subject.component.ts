@@ -1,18 +1,16 @@
 import { Component } from "@angular/core";
 import { GeneralService } from "../services/general.service";
 
-
 @Component({
   moduleId: module.id,
-  selector: "[blog-root]",
-  templateUrl: "../../templates/components/blog-root.component.html",
+  selector: "[olympiad-list]",
+  templateUrl: "../../templates/components/olympiad-subject.component.html",
   styleUrls: [
-    "../../styles/components/blog-root.component.css"
+    "../../styles/components/olympiad-root.component.css"
   ]
 })
 
-export class BlogRootComponent {
-  loading: boolean = true;
+export class OlympiadSubjectComponent {
   general: GeneralService;
 
   constructor (general: GeneralService) {

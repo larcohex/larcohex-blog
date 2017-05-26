@@ -4,7 +4,7 @@ declare let d3:any;
 @Component({
   moduleId: module.id,
   selector: "olympiad-loading",
-  templateUrl: "../../templates/components/olympiad-loading.component.html",
+  templateUrl: "../../templates/svg/olympiad-loading.component.html",
   styleUrls: [
     "../../styles/components/olympiad-loading.component.css"
   ]

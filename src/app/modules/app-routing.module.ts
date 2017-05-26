@@ -5,6 +5,8 @@ import { BlogRootComponent }    from "../components/blog-root.component";
 import { BlogPostComponent } from "../components/blog-post.component";
 import { OlympiadRootComponent } from "../components/olympiad-root.component";
 import { BlogPostListComponent } from "../components/blog-post-list.component";
+import { OlympiadListComponent } from "../components/olympiad-list.component";
+import { OlympiadSubjectComponent } from "../components/olympiad-subject.component";
 
 const routes: Routes = [
   { path: "blog", component: BlogRootComponent,
@@ -13,7 +15,12 @@ const routes: Routes = [
       { path: ":ref", component: BlogPostComponent }
     ]
   },
-  { path: "olympiad", component: OlympiadRootComponent },
+  { path: "olympiad", component: OlympiadRootComponent,
+    children: [
+      { path: "", component: OlympiadListComponent },
+      { path: ":subject", component: OlympiadSubjectComponent }
+    ]
+  },
   { path: "", component: RootComponent }
 ];
 

@@ -1,0 +1,70 @@
+<div class="h-20 hide-on-tablet-portrait tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
+
+<div class="grid-container h-60 tablet-portrait-h-100 tablet-landscape-h-60 mobile-portrait-h-100 mobile-landscape-h-60 no-wrap">
+
+  <div id="landscape" class="w-100 h-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap" *ngIf="general.orientation() === 'landscape'">
+    <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block pointer" (click)="prev()">
+      <olympiad-prev-button></olympiad-prev-button>
+    </div>
+
+    <div class="grid-90 h-100" *ngIf="!general.mobile()">
+      <math-logo *ngIf="item === 0"></math-logo>
+      <physics-logo *ngIf="item === 1"></physics-logo>
+      <chemistry-logo *ngIf="item === 2"></chemistry-logo>
+      <biology-logo *ngIf="item === 3"></biology-logo>
+      <cs-logo *ngIf="item === 4"></cs-logo>
+    </div>
+
+    <div class="w-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap scrollable-x" *ngIf="general.mobile()" >
+      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
+        <math-logo *ngIf="item === 0"></math-logo>
+      </div>
+      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
+        <physics-logo *ngIf="item === 1"></physics-logo>
+      </div>
+      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
+        <chemistry-logo *ngIf="item === 2"></chemistry-logo>
+      </div>
+      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
+        <physics-logo *ngIf="item === 3"></physics-logo>
+      </div>
+      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
+        <cs-logo *ngIf="item === 4"></cs-logo>
+      </div>
+    </div>
+
+    <div class="postref-nav-button grid-5 h-100 hide-on-tablet-landscape hide-on-mobile-landscape inline-block pointer" (click)="next()">
+      <olympiad-next-button></olympiad-next-button>
+    </div>
+  </div>
+
+
+  <div id="portrait" class="tablet-portrait-h-100 mobile-portrait-h-100" *ngIf="general.orientation() === 'portrait'">
+    <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+    <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
+      <math-logo></math-logo>
+    </div>
+    <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+    <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
+      <physics-logo></physics-logo>
+    </div>
+    <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+    <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
+      <chemistry-logo></chemistry-logo>
+    </div>
+    <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+    <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
+      <biology-logo></biology-logo>
+    </div>
+    <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+    <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
+      <cs-logo></cs-logo>
+    </div>
+    <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
+  </div>
+</div>
+
+<div class="h-20 tablet-portrait-h-20 tablet-landscape-h-20 hide-on-mobile-portrait mobile-landscape-h-20 w-100"></div>
+
+
+
