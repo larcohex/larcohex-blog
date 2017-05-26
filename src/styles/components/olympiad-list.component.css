@@ -5,7 +5,7 @@
 }
 
 
-.postref-nav-button
+.olympiad-nav-button
 {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -20,13 +20,19 @@
   transition-property: background-color;
 }
 
-.postref-nav-button:active, .postref-nav-button:focus, .postref-nav-button:hover
+.olympiad-nav-button:active, .olympiad-nav-button:focus, .olympiad-nav-button:hover
 {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.postref-nav-button-disabled
+.olympiad-nav-button-disabled
 {
   background-color: rgba(0, 0, 0, 0) !important;
   cursor: auto;
+}
+
+.subject-title
+{
+  color: #ffffff;
+  font-size: 1.2em;
 }
