@@ -8,7 +8,7 @@
     </div>
 
     <div class="grid-90 h-100" *ngIf="!general.mobile()">
-      <div *ngIf="item === 0" class="w-100 h-100">
+      <div *ngIf="item === 0" class="w-100 h-100" [@animation]="state">
         <div class="w-100 h-80">
           <math-logo></math-logo>
         </div>
@@ -16,7 +16,7 @@
           <p class="subject-title">МАТЕМАТИКА</p>
         </div>
       </div>
-      <div *ngIf="item === 1" class="w-100 h-100">
+      <div *ngIf="item === 1" class="w-100 h-100" [@animation]="state">
         <div class="w-100 h-80">
           <physics-logo></physics-logo>
         </div>
@@ -24,7 +24,7 @@
           <p class="subject-title">ФИЗИКА</p>
         </div>
       </div>
-      <div *ngIf="item === 2" class="w-100 h-100">
+      <div *ngIf="item === 2" class="w-100 h-100" [@animation]="state">
         <div class="w-100 h-80">
           <chemistry-logo></chemistry-logo>
         </div>
@@ -32,7 +32,7 @@
           <p class="subject-title">ХИМИЯ</p>
         </div>
       </div>
-      <div *ngIf="item === 3" class="w-100 h-100">
+      <div *ngIf="item === 3" class="w-100 h-100" [@animation]="state">
         <div class="w-100 h-80">
           <biology-logo></biology-logo>
         </div>
@@ -40,7 +40,7 @@
           <p class="subject-title">БИОЛОГИЯ</p>
         </div>
       </div>
-      <div *ngIf="item === 4" class="w-100 h-100">
+      <div *ngIf="item === 4" class="w-100 h-100" [@animation]="state">
         <div class="w-100 h-80">
           <cs-logo></cs-logo>
         </div>
