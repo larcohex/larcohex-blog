@@ -13,7 +13,7 @@
   padding: 20px 50px;
 }
 
-#post >>> p
+#post >>> p, #post >>> li
 {
   text-align: justify;
 }
