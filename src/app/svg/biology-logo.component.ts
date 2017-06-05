@@ -3,7 +3,7 @@ declare let d3:any;
 
 @Component({
   moduleId: module.id,
-  selector: "biology-logo",
+  selector: "[biology-logo]",
   templateUrl: "../../templates/svg/biology-logo.component.html"
 })
 export class BiologyLogoComponent implements OnInit{

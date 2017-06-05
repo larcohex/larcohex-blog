@@ -3,7 +3,7 @@ declare let d3:any;
 
 @Component({
   moduleId: module.id,
-  selector: "physics-logo",
+  selector: "[physics-logo]",
   templateUrl: "../../templates/svg/physics-logo.component.html"
 })
 export class PhysicsLogoComponent implements OnInit {

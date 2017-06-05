@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { GeneralService } from "./services/general.service";
+import { AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
 
 @Component({
   moduleId: module.id,
@@ -15,8 +16,10 @@ export class AppComponent  {
 
   constructor(
     private router: Router,
-    private general: GeneralService
+    private general: GeneralService,
+    private db: AngularFireDatabase
   ) {
     this.router.events.subscribe((nav:any) => this.currentUrl = nav.url);
   }
 }
+

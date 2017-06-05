@@ -34,7 +34,12 @@ svg
 
 p
 {
-  color: #001a27;
+  white-space: normal;
+}
+
+a
+{
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {

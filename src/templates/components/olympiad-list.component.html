@@ -9,40 +9,50 @@
 
     <div class="grid-90 h-100" *ngIf="!general.mobile()">
       <div *ngIf="item === 0" class="w-100 h-100" [@animation]="state">
-        <div class="w-100 h-80">
-          <math-logo></math-logo>
+        <div class="w-100 h-80 h-center">
+          <a routerLink="math" class="inline-block h-100">
+            <div math-logo class="h-100"></div>
+          </a>
         </div>
         <div class="w-100 h-20 h-center">
           <p class="subject-title">МАТЕМАТИКА</p>
         </div>
       </div>
       <div *ngIf="item === 1" class="w-100 h-100" [@animation]="state">
-        <div class="w-100 h-80">
-          <physics-logo></physics-logo>
+        <div class="w-100 h-80 h-center">
+          <a routerLink="physics" class="inline-block h-100">
+            <div physics-logo class="h-100"></div>
+          </a>
         </div>
         <div class="w-100 h-20 h-center">
           <p class="subject-title">ФИЗИКА</p>
         </div>
       </div>
       <div *ngIf="item === 2" class="w-100 h-100" [@animation]="state">
-        <div class="w-100 h-80">
-          <chemistry-logo></chemistry-logo>
+        <div class="w-100 h-80 h-center">
+          <a routerLink="chemistry" class="inline-block h-100">
+            <div chemistry-logo class="h-100"></div>
+          </a>
         </div>
         <div class="w-100 h-20 h-center">
           <p class="subject-title">ХИМИЯ</p>
         </div>
       </div>
       <div *ngIf="item === 3" class="w-100 h-100" [@animation]="state">
-        <div class="w-100 h-80">
-          <biology-logo></biology-logo>
+        <div class="w-100 h-80 h-center">
+          <a routerLink="biology" class="inline-block h-100">
+            <div biology-logo class="h-100"></div>
+          </a>
         </div>
         <div class="w-100 h-20 h-center">
           <p class="subject-title">БИОЛОГИЯ</p>
         </div>
       </div>
       <div *ngIf="item === 4" class="w-100 h-100" [@animation]="state">
-        <div class="w-100 h-80">
-          <cs-logo></cs-logo>
+        <div class="w-100 h-80 h-center">
+          <a routerLink="cs" class="inline-block h-100">
+            <div cs-logo class="h-100"></div>
+          </a>
         </div>
         <div class="w-100 h-20 h-center">
           <p class="subject-title">ИНФОРМАТИКА</p>
@@ -52,40 +62,50 @@
 
     <div class="w-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap scrollable-x" *ngIf="general.mobile()" >
       <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
-        <div class="tablet-landscape-h-80 mobile-landscape-h-70">
-          <math-logo></math-logo>
+        <div class="tablet-landscape-h-80 mobile-landscape-h-70 h-center">
+          <a routerLink="math" class="inline-block tablet-landscape-h-100 mobile-landscape-h-100">
+            <div math-logo class="tablet-landscape-h-100 mobile-landscape-h-100"></div>
+          </a>
         </div>
         <div class="tablet-landscape-h-20 mobile-landscape-h-30 h-center">
           <p class="subject-title">МАТЕМАТИКА</p>
         </div>
       </div>
       <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
-        <div class="tablet-landscape-h-80 mobile-landscape-h-70">
-          <physics-logo></physics-logo>
+        <div class="tablet-landscape-h-80 mobile-landscape-h-70 h-center">
+          <a routerLink="physics" class="inline-block tablet-landscape-h-100 mobile-landscape-h-100">
+            <div physics-logo class="tablet-landscape-h-100 mobile-landscape-h-100"></div>
+          </a>
         </div>
         <div class="tablet-landscape-h-20 mobile-landscape-h-30 h-center">
           <p class="subject-title">ФИЗИКА</p>
         </div>
       </div>
       <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
-        <div class="tablet-landscape-h-80 mobile-landscape-h-70">
-          <chemistry-logo></chemistry-logo>
+        <div class="tablet-landscape-h-80 mobile-landscape-h-70 h-center">
+          <a routerLink="chemistry" class="inline-block tablet-landscape-h-100 mobile-landscape-h-100">
+            <div chemistry-logo class="tablet-landscape-h-100 mobile-landscape-h-100"></div>
+          </a>
         </div>
         <div class="tablet-landscape-h-20 mobile-landscape-h-30 h-center">
           <p class="subject-title">ХИМИЯ</p>
         </div>
       </div>
       <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
-        <div class="tablet-landscape-h-80 mobile-landscape-h-70">
-          <biology-logo></biology-logo>
+        <div class="tablet-landscape-h-80 mobile-landscape-h-70 h-center">
+          <a routerLink="biology" class="inline-block tablet-landscape-h-100 mobile-landscape-h-100">
+            <div biology-logo class="tablet-landscape-h-100 mobile-landscape-h-100"></div>
+          </a>
         </div>
         <div class="tablet-landscape-h-20 mobile-landscape-h-30 h-center">
           <p class="subject-title">БИОЛОГИЯ</p>
         </div>
       </div>
       <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none">
-        <div class="tablet-landscape-h-80 mobile-landscape-h-70">
-          <cs-logo></cs-logo>
+        <div class="tablet-landscape-h-80 mobile-landscape-h-70 h-center">
+          <a routerLink="cs" class="inline-block tablet-landscape-h-100 mobile-landscape-h-100">
+            <div cs-logo class="tablet-landscape-h-100 mobile-landscape-h-100"></div>
+          </a>
         </div>
         <div class="tablet-landscape-h-20 mobile-landscape-h-30 h-center">
           <p class="subject-title">ИНФОРМАТИКА</p>
@@ -102,8 +122,10 @@
   <div id="portrait" class="tablet-portrait-h-100 mobile-portrait-h-100" *ngIf="general.orientation() === 'portrait'">
     <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
     <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
-      <div class="tablet-portrait-h-80 mobile-portrait-h-80">
-        <math-logo></math-logo>
+      <div class="tablet-portrait-h-80 mobile-portrait-h-80 h-center">
+        <a routerLink="math" class="inline-block tablet-portrait-h-100 mobile-portrait-h-100">
+          <div math-logo class="tablet-portrait-h-100 mobile-portrait-h-100"></div>
+        </a>
       </div>
       <div class="tablet-portrait-h-20 mobile-portrait-h-20 h-center">
         <p class="subject-title">МАТЕМАТИКА</p>
@@ -111,8 +133,10 @@
     </div>
     <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
     <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
-      <div class="tablet-portrait-h-80 mobile-portrait-h-80">
-        <physics-logo></physics-logo>
+      <div class="tablet-portrait-h-80 mobile-portrait-h-80 h-center">
+        <a routerLink="physics" class="inline-block tablet-portrait-h-100 mobile-portrait-h-100">
+          <div physics-logo class="tablet-portrait-h-100 mobile-portrait-h-100"></div>
+        </a>
       </div>
       <div class="tablet-portrait-h-20 mobile-portrait-h-20 h-center">
         <p class="subject-title">ФИЗИКА</p>
@@ -120,8 +144,10 @@
     </div>
     <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
     <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
-      <div class="tablet-portrait-h-80 mobile-portrait-h-80">
-        <chemistry-logo></chemistry-logo>
+      <div class="tablet-portrait-h-80 mobile-portrait-h-80 h-center">
+        <a routerLink="chemistry" class="inline-block tablet-portrait-h-100 mobile-portrait-h-100">
+          <div chemistry-logo class="tablet-portrait-h-100 mobile-portrait-h-100"></div>
+        </a>
       </div>
       <div class="tablet-portrait-h-20 mobile-portrait-h-20 h-center">
         <p class="subject-title">ХИМИЯ</p>
@@ -129,8 +155,10 @@
     </div>
     <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
     <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
-      <div class="tablet-portrait-h-80 mobile-portrait-h-80">
-        <biology-logo></biology-logo>
+      <div class="tablet-portrait-h-80 mobile-portrait-h-80 h-center">
+        <a routerLink="biology" class="inline-block tablet-portrait-h-100 mobile-portrait-h-100">
+          <div biology-logo class="tablet-portrait-h-100 mobile-portrait-h-100"></div>
+        </a>
       </div>
       <div class="tablet-portrait-h-20 mobile-portrait-h-20 h-center">
         <p class="subject-title">БИОЛОГИЯ</p>
@@ -138,8 +166,10 @@
     </div>
     <div class="hide-on-desktop tablet-portrait-grid-100 tablet-portrait-h-10 mobile-portrait-grid-100 mobile-portrait-h-10 hide-on-mobile-landscape hide-on-tablet-landscape"></div>
     <div class="tablet-portrait-h-80 mobile-portrait-h-80 tablet-portrait-grid-100 mobile-portrait-grid-100">
-      <div class="tablet-portrait-h-80 mobile-portrait-h-80">
-        <cs-logo></cs-logo>
+      <div class="tablet-portrait-h-80 mobile-portrait-h-80 h-center">
+        <a routerLink="cs" class="inline-block tablet-portrait-h-100 mobile-portrait-h-100">
+          <div cs-logo class="tablet-portrait-h-100 mobile-portrait-h-100"></div>
+        </a>
       </div>
       <div class="tablet-portrait-h-20 mobile-portrait-h-20 h-center">
         <p class="subject-title">ИНФОРМАТИКА</p>

@@ -12,21 +12,9 @@ import { GeneralService } from "../services/general.service";
 
 export class OlympiadRootComponent {
   general: GeneralService;
-  item: number = 1;
 
   constructor (general: GeneralService) {
     this.general = general;
-  }
-
-  prev(): void {
-    // animation
-    this.item = this.item - 1 > 0 ? this.item - 1 : this.item;
-    // animation
-  }
-
-  next(): void {
-    // animation
-    this.item = this.item + 1 < 6 ? this.item + 1 : this.item;
-    // animation
+    this.general.loading = false;
   }
 }

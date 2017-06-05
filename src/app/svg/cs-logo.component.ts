@@ -3,7 +3,7 @@ declare let d3:any;
 
 @Component({
   moduleId: module.id,
-  selector: "cs-logo",
+  selector: "[cs-logo]",
   templateUrl: "../../templates/svg/cs-logo.component.html",
   styleUrls: [
     "../../styles/svg/cs-logo.component.css"

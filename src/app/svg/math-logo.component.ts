@@ -3,7 +3,7 @@ declare let SVGMorpheus:any;
 
 @Component({
   moduleId: module.id,
-  selector: "math-logo",
+  selector: "[math-logo]",
   templateUrl: "../../templates/svg/math-logo.component.html"
 })
 export class MathLogoComponent implements OnInit {

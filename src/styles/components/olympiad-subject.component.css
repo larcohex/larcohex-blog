@@ -4,40 +4,12 @@
   height: 100%;
 }
 
-.blog-header-link, .blog-header-link:visited
-{
-  font-family: "Raleway", Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 0.9em;
-  color: rgba(0, 17, 26, 0.7);
-  text-decoration: none;
-}
-
-.blog-header-link:hover
-{
-  color: rgba(0, 17, 26, 1);
-  cursor: pointer;
-}
-
-.darken-bg
-{
-  background-color: rgba(0, 17, 26, 0.5);
-  height: 100%;
-  width: 100%;
-}
-
-#post-header
-{
-  background: center bottom no-repeat;
-  background-size: cover;
-}
-
 #post
 {
-  background-color: #ffffff;
+  background-color: rgba(0, 8, 26, 0.3);
   font-family: "Roboto", sans-serif;
-  color: #001a27;
-  border: 1px solid rgba(0, 26, 39, 0.1);
+  color: #dbdcdd;
+  border: 1px solid rgba(219, 220, 221, 0.1);
   padding: 20px 50px;
 }
 
@@ -46,30 +18,19 @@
   text-align: justify;
 }
 
-.post-title, .post-subtitle
+#post >>> a
 {
-  font-family: "Open Sans", sans-serif;
-  color: #fff;
-}
-
-.post-title
-{
-  font-size: 4em;
-}
-
-.post-subtitle
-{
-  font-size: 1.5em;
+  color: #7ebdc2;
 }
 
 .back-button
 {
   display: inline-block;
   width: 10%;
-  border: 0.5px solid rgba(0, 17, 26, 0.7);
+  border: 0.5px solid rgba(219, 220, 221, 0.7);
   text-decoration: none;
   background-color: transparent;
-  color: #001a27;
+  color: #dbdcdd;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   -webkit-transform: translateZ(0);
@@ -87,16 +48,6 @@
 
 
 @media (max-width: 767px) and (orientation: portrait) {
-  .post-title
-  {
-    font-size: 2.0em;
-  }
-
-  .post-subtitle
-  {
-    font-size: 1em;
-  }
-
   #post
   {
     padding: 15px 25px;
@@ -133,6 +84,6 @@
 .back-button:active, .back-button:focus, .back-button:hover
 {
   cursor: pointer;
-  background-color: #001a27;
-  color: #ffffff;
+  background-color: #dbdcdd;
+  color: #001a27;
 }
