@@ -11,10 +11,10 @@ import { GeneralService } from "../services/general.service";
 })
 
 export class OlympiadRootComponent {
-  loading: boolean = true;
   general: GeneralService;
 
   constructor (general: GeneralService) {
     this.general = general;
+    this.general.loading = false;
   }
 }
