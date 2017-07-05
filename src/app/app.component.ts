@@ -16,10 +16,8 @@ export class AppComponent  {
 
   constructor(
     private router: Router,
-    private general: GeneralService,
-    private db: AngularFireDatabase
+    private general: GeneralService
   ) {
     this.router.events.subscribe((nav:any) => this.currentUrl = nav.url);
   }
 }
-

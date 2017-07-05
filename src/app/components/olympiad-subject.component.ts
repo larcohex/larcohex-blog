@@ -8,7 +8,7 @@ declare let converter:any;
 
 @Component({
   moduleId: module.id,
-  selector: "[olympiad-list]",
+  selector: "[olympiad-subject]",
   templateUrl: "../../templates/components/olympiad-subject.component.html",
   styleUrls: [
     "../../styles/components/olympiad-subject.component.css"
