@@ -7,6 +7,30 @@
   url("../assets/fonts/Uni Sans/uni-sans.thin-caps.svg#svgFontName") format("svg");
 }
 
+::-webkit-input-placeholder {
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  color: rgba(0, 26, 39, 0.5);
+}
+
+::-moz-placeholder {
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  color: rgba(0, 26, 39, 0.5);
+}
+
+:-ms-input-placeholder {
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  color: rgba(0, 26, 39, 0.5);
+}
+
+:-moz-placeholder {
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  color: rgba(0, 26, 39, 0.5);
+}
+
+::-webkit-file-upload-button {
+  cursor:pointer;
+}
+
 html
 {
   height: 100%;
@@ -83,6 +107,11 @@ a
   .mobile-portrait-h-50
   {
     height: 50%;
+  }
+
+  .mobile-portrait-h-45
+  {
+    height: 40%;
   }
 
   .mobile-portrait-h-40
@@ -770,9 +799,28 @@ a
   width: 60%;
 }
 
+.w-50
+{
+  width: 50%;
+}
+
+.w-45
+{
+  width: 45%;
+}
 .w-40
 {
   width: 40%;
+}
+
+.w-30
+{
+  width: 30%;
+}
+
+.w-25
+{
+  width: 25%;
 }
 
 .w-20
@@ -780,9 +828,19 @@ a
   width: 20%;
 }
 
+.w-15
+{
+  width: 15%;
+}
+
 .w-10
 {
   width: 10%;
+}
+
+.w-5
+{
+  width: 5%;
 }
 
 .h-center
@@ -848,6 +906,11 @@ a
   opacity: 0.5;
 }
 
+.opacity-0
+{
+  opacity: 0;
+}
+
 #background-img
 {
   background: url(../assets/images/background/background.jpg) center center no-repeat;
@@ -906,6 +969,11 @@ a
   position: absolute;
 }
 
+.relative
+{
+  position: relative;
+}
+
 .scrollable
 {
   overflow: auto;
@@ -948,3 +1016,125 @@ a
 {
   flex-direction: column;
 }
+
+
+.light-button
+{
+  display: inline-block;
+  border: 0.5px solid rgba(0, 17, 26, 0.7);
+  text-decoration: none;
+  background-color: transparent;
+  color: #001a27;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+.light-button:disabled
+{
+  opacity: 0.3;
+}
+
+.light-button:active:enabled, .light-button:focus:enabled, .light-button:hover:enabled
+{
+  cursor: pointer;
+  background-color: #001a27;
+  color: #ffffff;
+}
+
+.light-label
+{
+  color: #001a27;
+  margin-right: 15px;
+}
+
+.dark-button
+{
+  display: inline-block;
+  border: 0.5px solid rgba(219, 220, 221, 0.7);
+  text-decoration: none;
+  background-color: transparent;
+  color: #dbdcdd;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+.dark-button:disabled
+{
+  opacity: 0.3;
+}
+
+.dark-button:active:enabled, .dark-button:focus:enabled, .dark-button:hover:enabled
+{
+  cursor: pointer;
+  background-color: #dbdcdd;
+  color: #001a27;
+}
+
+.form-input-text
+{
+  border: 0.5px solid rgba(0, 17, 26, 0.7);
+  padding: 5px 10px;
+  color: #001a27;
+}
+
+.success
+{
+  color: #238224;
+}
+
+.error
+{
+  color: #ad2626;
+}
+
+.margin-auto
+{
+  margin: auto;
+}
+
+.margin-v-auto
+{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.margin-h-2
+{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+
+.hidden
+{
+  display: none;
+}
+
+
+.CodeMirror
+{
+  height: 70%;
+}
+

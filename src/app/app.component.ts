@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { GeneralService } from "./services/general.service";
 import { AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
   moduleId: module.id,

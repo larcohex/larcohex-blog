@@ -1,0 +1,7 @@
+<blog-loading *ngIf='general.loading'></blog-loading>
+<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10 v-center flex-end">
+  <button class="inline-block float-r light-button margin-right-10 h-70 grid-10" (click)="logout()" *ngIf="!general.loading">Выйти</button>
+</div>
+<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-90">
+  <router-outlet></router-outlet>
+</div>

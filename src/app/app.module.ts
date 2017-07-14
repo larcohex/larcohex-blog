@@ -33,6 +33,13 @@ import { BlogNextButtonComponent } from "./svg/blog-next-button.component";
 import { BlogPrevButtonComponent } from "./svg/blog-prev-button.component";
 import { OlympiadPrevButtonComponent } from "./svg/olympiad-prev-button.component";
 import { OlympiadNextButtonComponent } from "./svg/olympiad-next-button.component";
+import { AdminDashboardComponent } from "./components/admin-dashboard.component";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { LoginComponent } from "./components/login.component";
+import { FormsModule } from "@angular/forms";
+import { AdminComponent } from "./components/admin.component";
+import { PostEditComponent } from "./components/post-edit.component";
+import { NotFoundComponent } from "./components/not-found.component";
 
 @NgModule({
   imports: [
@@ -40,7 +47,9 @@ import { OlympiadNextButtonComponent } from "./svg/olympiad-next-button.componen
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -68,7 +77,12 @@ import { OlympiadNextButtonComponent } from "./svg/olympiad-next-button.componen
     BiologyLogoComponent,
     ChemistryLogoComponent,
     CSLogoComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    AdminComponent,
+    AdminDashboardComponent,
+    LoginComponent,
+    PostEditComponent,
+    NotFoundComponent
   ],
   providers: [
     GeneralService
