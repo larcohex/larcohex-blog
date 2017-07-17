@@ -1,6 +1,6 @@
 <div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-100" [ngClass]="{'hidden': general.loading}">
   <form (ngSubmit)="editPost()" id="content" class="scrollable-y w-100 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100">
-    <div id="title-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
+    <div id="title-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10" *ngIf="fullPost">
       <div class="grid-30 h-100 v-center">
         <label for="title-input" class="light-label">Название</label>
       </div>
@@ -8,7 +8,7 @@
         <input type="text" id="title-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" name="title" [(ngModel)]="postRef.title">
       </div>
     </div>
-    <div id="subtitle-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
+    <div id="subtitle-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10" *ngIf="fullPost">
       <div class="grid-30 h-100 v-center">
         <label for="subtitle-input" class="light-label">Подзаголовок</label>
       </div>
@@ -16,7 +16,7 @@
         <input type="text" id="subtitle-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" name="subtitle" [(ngModel)]="postRef.subtitle">
       </div>
     </div>
-    <div id="ref-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
+    <div id="ref-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10" *ngIf="fullPost">
       <div class="grid-30 h-100 v-center">
         <label for="ref-input" class="light-label">Ссылка</label>
       </div>
@@ -24,7 +24,7 @@
         <input type="text" id="ref-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" name="ref" [(ngModel)]="postRef.ref">
       </div>
     </div>
-    <div id="img-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-30">
+    <div id="img-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-30" *ngIf="fullPost">
       <div class="grid-30 h-100 v-center">
         <label for="img-input" class="light-label">Изображение</label>
       </div>
@@ -46,7 +46,7 @@
     </div>
     <div id="submit-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
       <div class="grid-10 h-100">
-        <button class="light-button grid-100 h-80" (click)="editPost()">Изменить</button>
+        <button type="submit" class="light-button grid-100 h-80">Изменить</button>
       </div>
       <div class="grid-10 h-100">
         <button class="light-button grid-100 h-80" (click)="goBack()">Отмена</button>

@@ -38,8 +38,9 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { LoginComponent } from "./components/login.component";
 import { FormsModule } from "@angular/forms";
 import { AdminComponent } from "./components/admin.component";
-import { PostEditComponent } from "./components/post-edit.component";
+import { EditPostComponent } from "./components/edit-post.component";
 import { NotFoundComponent } from "./components/not-found.component";
+import { NewPostComponent } from "./components/new-post.component";
 
 @NgModule({
   imports: [
@@ -81,7 +82,8 @@ import { NotFoundComponent } from "./components/not-found.component";
     AdminComponent,
     AdminDashboardComponent,
     LoginComponent,
-    PostEditComponent,
+    NewPostComponent,
+    EditPostComponent,
     NotFoundComponent
   ],
   providers: [

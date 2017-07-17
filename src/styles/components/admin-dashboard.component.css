@@ -92,3 +92,16 @@
   background: no-repeat center center;
   background-size: cover;
 }
+
+#new-post-div
+{
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+#new-post-div:hover
+{
+  background-color: rgba(124,124,124, 0.2);
+}

@@ -30,8 +30,8 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
       transition ("initial => right", animate ("300ms ease-in")),
       transition ("left => initial", animate ("300ms ease-in")),
       transition ("right => initial", animate ("300ms ease-in")),
-      transition ("left => right", animate ("0")),
-      transition ("right => left", animate ("0"))
+      transition ("left => right", animate ("0ms")),
+      transition ("right => left", animate ("0ms"))
     ]),
   ]
 })

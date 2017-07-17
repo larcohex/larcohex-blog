@@ -4,13 +4,16 @@
     <button class="inline-block h-100" [ngClass]="{'tab-link': !tab, 'tab-link-selected': tab}" (click)="tab = true;">Олимпиада</button>
 
   </div>
-  <div class="content grid-100 h-90">
+  <div class="content grid-100 h-80">
     <div class="content-table h-100 grid-100 scrollable-y" *ngIf="!tab">
       <div class="grid-100 h-10">
         <div class="content-thead grid-25 h-100 h-center v-center">Изображение</div>
         <div class="content-thead grid-25 h-100 h-center v-center">Подзаголовок</div>
         <div class="content-thead grid-25 h-100 h-center v-center">Название</div>
         <div class="content-thead grid-25 h-100 h-center v-center">Действия</div>
+      </div>
+      <div id="new-post-div" class="grid-100 h-30 content-tbody pointer v-center h-center" (click)="goTo ('new');">
+        <i class="fa fa-plus fa-2x" style="color:#228716;"></i>
       </div>
       <div *ngFor="let post of posts | async" class="grid-100 h-30 content-tbody">
         <div class="grid-25 h-100 h-center v-center">
@@ -535,4 +538,4 @@
     </div>
   </div>
 </div>
-<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-5"></div>
+<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10"></div>

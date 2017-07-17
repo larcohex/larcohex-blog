@@ -10,8 +10,9 @@ import { OlympiadSubjectComponent } from "../components/olympiad-subject.compone
 import { LoginComponent } from "../components/login.component";
 import { AdminDashboardComponent } from "../components/admin-dashboard.component";
 import { AdminComponent } from "app/components/admin.component";
-import { PostEditComponent } from "../components/post-edit.component";
+import { EditPostComponent } from "../components/edit-post.component";
 import { NotFoundComponent } from "../components/not-found.component";
+import { NewPostComponent } from "../components/new-post.component";
 
 const routes: Routes = [
   { path: "blog", component: BlogRootComponent,
@@ -31,7 +32,8 @@ const routes: Routes = [
     children: [
       { path: "", pathMatch: "full", redirectTo: "dashboard" },
       { path: "dashboard", component: AdminDashboardComponent },
-      { path: "post/:name", component: PostEditComponent }
+      { path: "post/new", component: NewPostComponent },
+      { path: "post/:name", component: EditPostComponent }
     ]
   },
   { path: "404", component: NotFoundComponent },

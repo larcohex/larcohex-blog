@@ -3,6 +3,10 @@ import { GeneralService } from "../services/general.service";
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Router } from "@angular/router";
+import "rxjs/add/operator/map";
+
+// TODO: add post delete
+// TODO: responsive
 
 @Component({
   moduleId: module.id,
@@ -26,7 +30,7 @@ export class AdminDashboardComponent {
   ) {
     this.general = general;
     this.general.loading = true;
-    this.posts = db.list ("/postrefs");
+    this.posts = db.list ("/postrefs").map((array) => array.reverse()) as FirebaseListObservable<any[]>;
     this.posts.subscribe(() => {
       this.general.loading = false;
     });
