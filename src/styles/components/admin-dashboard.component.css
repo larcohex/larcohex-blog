@@ -82,6 +82,21 @@
   border-bottom: 4px solid #2e6da4;
 }
 
+@media (max-width: 768px)
+{
+  .content-thead
+  {
+    font-size: 0.8em;
+  }
+
+  #new-post-mobile-button
+  {
+    position: fixed;
+    bottom: 14%;
+    right: 7%;
+  }
+}
+
 .content-tbody
 {
   margin-top: 10px;
@@ -101,7 +116,7 @@
   transition-property: color, background-color;
 }
 
-#new-post-div:hover
+.new-post-div:hover
 {
   background-color: rgba(124,124,124, 0.2);
 }

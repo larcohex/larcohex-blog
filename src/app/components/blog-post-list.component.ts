@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from "@angular/core";
+import { Component } from "@angular/core";
 import { GeneralService } from "../services/general.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Location } from '@angular/common';
@@ -53,7 +53,7 @@ export class BlogPostListComponent {
   ) {
     this.general = general;
     this.general.loading = true;
-    this.posts = db.list ("/postrefs");
+    this.posts = db.list ("/postrefs").map((array) => array.reverse()) as FirebaseListObservable<any[]>;
     this.posts.subscribe((posts) => {
       this.length = posts.length;
       this.route.queryParams.subscribe ((params) => {
@@ -91,11 +91,5 @@ export class BlogPostListComponent {
         this.router.navigate([], { queryParams: { page: this.page } });
       }.bind (this), 500);
     }
-  }
-
-  onChange(): void {
-    setTimeout (function() {
-      this.state = "initial";
-    }.bind (this), 1);
   }
 }

@@ -17,8 +17,8 @@
       <post-ref *ngIf="(posts | async) && (posts | async)[triplet[2]]" [post]="(posts | async)[triplet[2]]" [tvalue]="triplet[2]" (onChange)="onChange ($event)"></post-ref>
     </div>
 
-    <div class="w-100 tablet-landscape-h-100 mobile-landscape-h-100 no-wrap scrollable-x" *ngIf="general.mobile()" >
-      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block float-none" *ngFor="let post of posts | async">
+    <div class="w-100 tablet-landscape-h-100 mobile-landscape-h-100 mobile-landscape-no-wrap tablet-landscape-no-wrap mobile-landscape-scrollable-x tablet-landscape-scrollable-x" *ngIf="general.mobile()" >
+      <div class="tablet-landscape-h-100 mobile-landscape-h-100 tablet-landscape-grid-33 mobile-landscape-grid-33 inline-block mobile-landscape-float-none tablet-landscape-float-none" *ngFor="let post of posts | async">
         <post-ref [post]="post"></post-ref>
       </div>
     </div>

@@ -20,7 +20,8 @@ export class EditPostComponent implements AfterViewInit {
     ref: "",
     img: "",
     subtitle: "",
-    title: ""
+    title: "",
+    imgRef: ""
   };
   editor: any;
   general: GeneralService;
@@ -31,6 +32,8 @@ export class EditPostComponent implements AfterViewInit {
   postId: number;
   newImg: File = null;
   fullPost: boolean = false;
+  disposable: any;
+  error: string = "";
 
   constructor (
     private route: ActivatedRoute,
@@ -49,12 +52,12 @@ export class EditPostComponent implements AfterViewInit {
         this.firePost = this.db.object ("/olympiad/" + params["name"]);
         this.firePost.subscribe ((post) => {
           this.general.loading = false;
-          this.deferred.resolve (post.$value);
+          this.deferred.resolve (post.text);
         });
       }
       else {
         this.firePost = this.db.object ("/posts/" + params["name"]);
-        this.firePost.subscribe((post) => {
+        this.disposable = this.firePost.subscribe((post) => {
           this.postId = post.id;
           if (post.hasOwnProperty("$value") && !post["$value"]) {
             this.general.loading = false;
@@ -87,37 +90,80 @@ export class EditPostComponent implements AfterViewInit {
   }
 
   editPost(): void {
-    if (["math", "physics", "chemistry", "biology", "cs"].indexOf (this.postRef.ref) > -1) {
+    this.error = "";
+    if (["math", "physics", "chemistry", "biology", "cs", "new"].indexOf (this.postRef.ref) > -1) {
+      this.error = "Недопустимая ссылка";
+      return;
+    }
+    if (!this.postRef.title) {
+      this.error = "Пожалуйста, введите название";
+      return;
+    }
+    if (!this.postRef.ref) {
+      this.error = "Пожалуйста, введите ссылку";
+      return;
+    }
+    if (!this.editor.value()) {
+      this.error = "Пожалуйста, введите текст";
       return;
     }
     if (this.newImg) {
-      let storage = firebase.storage() as any;
-      let storageRef = storage.ref();
-      storageRef.child (this.postRef.ref + "-bg.jpg").delete().then (() => {
-        storageRef.child (this.postRef.ref + "-bg.jpg").put (this.newImg).then ((response) => {
+      let storageRef = firebase.storage().ref();
+      storageRef.child (this.postRef.imgRef).delete().then (() => {
+        storageRef.child (this.postRef.ref + "-bg." + this.newImg.name.split (".").pop()).put (this.newImg).then ((response) => {
           this.firePostRef.update ({
             ref: this.postRef.ref,
             subtitle: this.postRef.subtitle,
             title: this.postRef.title,
-            img: response.downloadURL
+            img: response.downloadURL,
+            imgRef: this.postRef.ref + "-bg." + this.newImg.name.split (".").pop()
           }).then (() => {
             if (this.postRef.ref === this.ref) {
               this.firePost.update ({
                 text: this.editor.value()
+              }).then (() => {
+                this.goBack();
+              }, (error) => {
+                this.error = error.message;
+                this.general.loading = false;
               });
             }
             else {
-              this.firePost.remove();
-              let temp = {};
-              temp[this.postRef.ref] = {id: this.postId, text: this.editor.value()};
-              this.db.object ("/posts/").set (temp);
+              this.disposable.unsubscribe();
+              this.firePost.remove().then (() => {
+                this.db.list ("/posts").update (this.postRef.ref, {
+                  id: this.postId,
+                  text: this.editor.value()
+                }).then (() => {
+                  this.goBack();
+                });
+              }, (error) => {
+                this.disposable = this.firePost.subscribe((post) => {
+                  this.postId = post.id;
+                  if (post.hasOwnProperty("$value") && !post["$value"]) {
+                    this.general.loading = false;
+                    this.router.navigate (["/404"]);
+                  }
+                  else {
+                    this.general.loading = false;
+                    this.deferred.resolve (post.text);
+                    this.firePostRef = this.db.object ("/postrefs/" + post.id);
+                    this.firePostRef.subscribe((postRef) => {
+                      this.postRef = postRef;
+                      this.fullPost = true;
+                    });
+                  }
+                });
+                this.error = error.message;
+                this.general.loading = false;
+              });
             }
-            this.goBack();
-          }).catch ((error) => {
-            console.log (error);
           });
         });
-      }, (error) => console.log (error));
+      }, (error) => {
+        this.error = error.message;
+        this.general.loading = false;
+      });
     }
     else {
       if (this.firePostRef) {
@@ -129,22 +175,80 @@ export class EditPostComponent implements AfterViewInit {
           if (this.postRef.ref === this.ref) {
             this.firePost.update ({
               text: this.editor.value()
+            }).then (() => {
+              this.goBack();
+            }, (error) => {
+              this.error = error.message;
+              this.general.loading = false;
             });
           }
           else {
-            this.firePost.remove();
-            let temp = {};
-            temp[this.postRef.ref] = {id: this.postId, text: this.editor.value()};
-            this.db.object ("/posts/").set (temp);
+            let storageRef = firebase.storage().ref();
+            storageRef.child (this.postRef.imgRef).getDownloadURL().then ((url) => {
+              let xhr = new XMLHttpRequest();
+              xhr.responseType = "blob";
+              xhr.onload = function() {
+                let blob = xhr.response;
+                storageRef.child (this.postRef.imgRef).delete().then (() => {
+                  storageRef.child(this.postRef.ref + "-bg." + this.postRef.imgRef.split (".").pop()).put (blob).then((response) => {
+                    this.firePostRef.update ({
+                      img: response.downloadURL,
+                      imgRef: this.postRef.ref + "-bg." + this.postRef.imgRef.split (".").pop()
+                    }).then (() => {
+                      this.disposable.unsubscribe();
+                      this.firePost.remove().then (() => {
+                        this.db.list ("/posts").update (this.postRef.ref, {
+                          id: this.postId,
+                          text: this.editor.value()
+                        }).then (() => {
+                          this.goBack();
+                        }, (error) => {
+                          this.error = error.message;
+                          this.general.loading = false;
+                        });
+                      }, (error) => {
+                        this.disposable = this.firePost.subscribe((post) => {
+                          this.postId = post.id;
+                          if (post.hasOwnProperty("$value") && !post["$value"]) {
+                            this.general.loading = false;
+                            this.router.navigate (["/404"]);
+                          }
+                          else {
+                            this.general.loading = false;
+                            this.deferred.resolve (post.text);
+                            this.firePostRef = this.db.object ("/postrefs/" + post.id);
+                            this.firePostRef.subscribe((postRef) => {
+                              this.postRef = postRef;
+                              this.fullPost = true;
+                            });
+                          }
+                        });
+                        this.error = error.message;
+                        this.general.loading = false;
+                      });
+                    }, (error) => {
+                      this.error = error.message;
+                      this.general.loading = false;
+                    });
+                  })
+                });
+              }.bind (this);
+              xhr.open("GET", url);
+              xhr.send();
+            });
           }
-          this.goBack();
-        }).catch ((error) => {
-          console.log (error);
+        }, (error) => {
+          this.error = error.message;
+          this.general.loading = false;
         });
       }
       else {
-        this.firePost.set (this.editor.value());
-        this.goBack();
+        this.firePost.set (this.editor.value()).then (() => {
+          this.goBack();
+        }, (error) => {
+          this.error = error.message;
+          this.general.loading = false;
+        });
       }
     }
   }

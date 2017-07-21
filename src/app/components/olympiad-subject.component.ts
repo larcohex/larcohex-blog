@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { Location }                 from '@angular/common';
 import { GeneralService } from "../services/general.service";
 import { ActivatedRoute, Params } from "@angular/router";
-import { DomSanitizer } from "@angular/platform-browser";
+import { Meta } from "@angular/platform-browser";
 import { AngularFireDatabase } from "angularfire2/database";
 declare let converter:any;
 
@@ -15,16 +15,16 @@ declare let converter:any;
   ]
 })
 
-export class OlympiadSubjectComponent {
+export class OlympiadSubjectComponent implements OnDestroy {
   post: string = "";
   general: GeneralService;
   subject: String;
 
   constructor (
-    private sanitizer: DomSanitizer,
     private route: ActivatedRoute,
     private db: AngularFireDatabase,
     private location: Location,
+    private meta: Meta,
     general: GeneralService
   ) {
     this.general = general;
@@ -32,8 +32,12 @@ export class OlympiadSubjectComponent {
     this.route.params.subscribe((params: Params) => {
       this.subject = params["subject"];
       this.db.object ("/olympiad/" + params["subject"]).subscribe((post) => {
-        this.post = converter.makeHtml (post.$value);
+        this.post = converter.makeHtml (post.text);
         this.general.loading = false;
+        this.meta.updateTag({ name: "og:url", content: window.location.href });
+        this.meta.updateTag({ name: "og:title", content: this.subjectName() });
+        this.meta.updateTag({ name: "og:description", content: "Материал для подготовки к олимпиаде" });
+        this.meta.updateTag({ name: "og:image", content: post.img });
       });
     });
   }
@@ -57,5 +61,12 @@ export class OlympiadSubjectComponent {
 
   goBack(): void {
     this.location.back();
+  }
+
+  ngOnDestroy(): void {
+    this.meta.updateTag({ name: "og:url", content: "larcohex.github.io" });
+    this.meta.updateTag({ name: "og:title", content: "Larcohex"});
+    this.meta.updateTag({ name: "og:description", content: "Блог-портфолио" });
+    this.meta.updateTag({ name: "og:image", content: "https://raw.githubusercontent.com/larcohex/larcohex.github.io/develop/src/assets/images/background/background.jpg" });
   }
 }

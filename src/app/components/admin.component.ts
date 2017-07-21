@@ -13,11 +13,14 @@ import { AngularFireAuth } from "angularfire2/auth";
 })
 
 export class AdminComponent {
+  general: GeneralService;
+
   constructor (
-    private general: GeneralService,
     private router: Router,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    general: GeneralService
   ) {
+    this.general = general;
     this.general.currentUser.subscribe (user => {
       if (!user) {
         this.router.navigate (["/login"]);

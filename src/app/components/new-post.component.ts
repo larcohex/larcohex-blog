@@ -1,10 +1,9 @@
 import { AfterViewInit, Component } from "@angular/core";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
+import { Router } from "@angular/router";
+import { AngularFireDatabase } from "angularfire2/database";
 import { GeneralService } from "../services/general.service";
 import * as firebase from "firebase";
 declare let SimpleMDE:any;
-declare let shortid:any;
 
 @Component({
   moduleId: module.id,
@@ -26,11 +25,10 @@ export class NewPostComponent implements AfterViewInit {
   editor: any;
   general: GeneralService;
   ref: "";
-  postId: number;
   newImg: File = null;
+  error: string = "";
 
   constructor (
-    private route: ActivatedRoute,
     private router: Router,
     private db: AngularFireDatabase,
     general: GeneralService
@@ -49,29 +47,55 @@ export class NewPostComponent implements AfterViewInit {
   }
 
   addPost(): void {
-    if (["math", "physics", "chemistry", "biology", "cs"].indexOf (this.postRef.ref) > -1) {
+    this.error = "";
+    if (["math", "physics", "chemistry", "biology", "cs", "new"].indexOf (this.postRef.ref) > -1) {
+      this.error = "Недопустимая ссылка";
+      return;
+    }
+    if (!this.postRef.title) {
+      this.error = "Пожалуйста, введите название";
+      return;
+    }
+    if (!this.postRef.ref) {
+      this.error = "Пожалуйста, введите ссылку";
+      return;
+    }
+    if (!this.editor.value()) {
+      this.error = "Пожалуйста, введите текст";
       return;
     }
     if (this.newImg) {
-      let storage = firebase.storage() as any;
-      let storageRef = storage.ref();
-      storageRef.child (this.postRef.ref + "-bg.jpg").put (this.newImg).then ((response) => {
+      this.general.loading = true;
+      let storageRef = firebase.storage().ref();
+      storageRef.child (this.postRef.ref + "-bg." + this.newImg.name.split (".").pop()).put (this.newImg).then ((response) => {
         let id = this.general.generateUID();
         this.db.list ("/postrefs/").update (id, {
           ref: this.postRef.ref,
           subtitle: this.postRef.subtitle,
           title: this.postRef.title,
-          img: response.downloadURL
+          img: response.downloadURL,
+          imgRef: this.postRef.ref + "-bg." + this.newImg.name.split (".").pop()
         }).then (() => {
           this.db.list ("/posts/").update (this.postRef.ref, {
             id: id,
             text: this.editor.value()
+          }).then (() => {
+            this.goBack();
+          }, (error) => {
+            this.error = error.message;
+            this.general.loading = false;
           });
-          this.goBack();
-        }).catch ((error) => {
-          console.log (error);
+        }, (error) => {
+          this.error = error.message;
+          this.general.loading = false;
         });
+      }, (error) => {
+        this.error = error.message;
+        this.general.loading = false;
       });
+    }
+    else {
+      this.error = "Пожалуйста, загрузите изображение";
     }
   }
 

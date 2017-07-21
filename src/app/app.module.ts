@@ -41,6 +41,9 @@ import { AdminComponent } from "./components/admin.component";
 import { EditPostComponent } from "./components/edit-post.component";
 import { NotFoundComponent } from "./components/not-found.component";
 import { NewPostComponent } from "./components/new-post.component";
+import { MdDialogModule } from "@angular/material";
+import { ConfirmDialog } from "./objects/confirm-dialog.component";
+import { DialogService } from "./services/confirm-dialog.service";
 
 @NgModule({
   imports: [
@@ -50,7 +53,8 @@ import { NewPostComponent } from "./components/new-post.component";
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MdDialogModule
   ],
   declarations: [
     AppComponent,
@@ -84,13 +88,21 @@ import { NewPostComponent } from "./components/new-post.component";
     LoginComponent,
     NewPostComponent,
     EditPostComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ConfirmDialog
+  ],
+  exports: [
+    ConfirmDialog,
   ],
   providers: [
-    GeneralService
+    GeneralService,
+    DialogService
   ],
   bootstrap: [
     AppComponent
+  ],
+  entryComponents: [
+    ConfirmDialog,
   ]
 })
 export class AppModule { }

@@ -1,55 +1,61 @@
-<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-100">
-  <form (ngSubmit)="addPost()" id="content" class="scrollable-y w-100 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100">
-    <div id="title-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
-      <div class="grid-30 h-100 v-center">
-        <label for="title-input" class="light-label">Название</label>
+<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100" [ngClass]="{'hidden': general.loading}">
+  <form (ngSubmit)="addPost()" id="content" class="scrollable-y mobile-portrait-scrollable-y mobile-landscape-scrollable-y tablet-portrait-scrollable-y tablet-landscape-scrollable-y w-100 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100">
+    <div id="title-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10 mobile-portrait-h-15 mobile-landscape-h-15 tablet-portrait-h-10 tablet-landscape-h-10">
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-30 tablet-portrait-grid-20 tablet-landscape-grid-20 h-100 mobile-portrait-h-50 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <label for="title-input" class="light-label">Название *</label>
       </div>
-      <div class="grid-30 h-100">
-        <input type="text" id="title-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" name="title" [(ngModel)]="postRef.title">
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-70 tablet-portrait-grid-50 tablet-landscape-grid-30 h-100 mobile-portrait-h-50 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <input type="text" id="title-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-40 tablet-landscape-h-50" name="title" [(ngModel)]="postRef.title">
       </div>
     </div>
-    <div id="subtitle-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
-      <div class="grid-30 h-100 v-center">
+    <div id="subtitle-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10 mobile-portrait-h-15 mobile-landscape-h-15 tablet-portrait-h-10 tablet-landscape-h-10">
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-30 tablet-portrait-grid-20 tablet-landscape-grid-20 h-100 mobile-portrait-h-50 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
         <label for="subtitle-input" class="light-label">Подзаголовок</label>
       </div>
-      <div class="grid-30 h-100">
-        <input type="text" id="subtitle-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" name="subtitle" [(ngModel)]="postRef.subtitle">
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-70 tablet-portrait-grid-50 tablet-landscape-grid-30 h-100 mobile-portrait-h-50 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <input type="text" id="subtitle-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-40 tablet-landscape-h-50" name="subtitle" [(ngModel)]="postRef.subtitle">
       </div>
     </div>
-    <div id="ref-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
-      <div class="grid-30 h-100 v-center">
-        <label for="ref-input" class="light-label">Ссылка</label>
+    <div id="ref-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10 mobile-portrait-h-15 mobile-landscape-h-15 tablet-portrait-h-10 tablet-landscape-h-10">
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-30 tablet-portrait-grid-20 tablet-landscape-grid-20 h-100 mobile-portrait-h-50 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <label for="ref-input" class="light-label">Ссылка *</label>
       </div>
-      <div class="grid-30 h-100">
-        <input type="text" id="ref-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" name="ref" [(ngModel)]="postRef.ref">
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-70 tablet-portrait-grid-50 tablet-landscape-grid-30 h-100 mobile-portrait-h-50 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <input type="text" id="ref-input" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-40 tablet-landscape-h-50" name="ref" [(ngModel)]="postRef.ref">
       </div>
     </div>
-    <div id="img-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-30">
-      <div class="grid-30 h-100 v-center">
-        <label for="img-input" class="light-label">Изображение</label>
+    <div id="img-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-30 mobile-portrait-h-30 mobile-landscape-h-30 tablet-portrait-h-30 tablet-landscape-h-30">
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-30 tablet-portrait-grid-25 tablet-landscape-grid-20 h-100 mobile-portrait-h-30 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <label for="img-input" class="light-label">Изображение *</label>
       </div>
-      <div class="grid-30 h-100 v-center">
-        <div class="w-50 h-100 v-center float-l">
-          <div class="postref-img w-100 h-80" [ngStyle]="{'background-image': 'url(' + postRef.img + ')' }"></div>
+      <div class="grid-30 mobile-portrait-grid-100 mobile-landscape-grid-50 tablet-portrait-grid-70 tablet-landscape-grid-40 h-100 mobile-portrait-h-70 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <div class="w-50 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center float-l">
+          <div class="postref-img w-100 h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-70" [ngStyle]="{'background-image': 'url(' + postRef.img + ')' }"></div>
         </div>
-        <div class="w-50 h-30 relative margin-left-10 pointer">
-          <button id="upload-button" class="light-button absolute w-100 h-100 no-padding" (click)="fireEvent ('img-input', 'click');">Выбрать</button>
-          <input type="file" id="img-input" class="inline-block w-100 h-100 pointer opacity-0" title=" " (change)="getImage ($event)">
+        <div class="w-50 h-30 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-20 tablet-landscape-h-30 relative margin-left-10 pointer">
+          <button id="upload-button" class="light-button absolute w-100 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 no-padding">Выбрать</button>
+          <input type="file" accept="image/*" id="img-input" class="inline-block w-100 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 pointer opacity-0" title=" " (change)="getImage ($event)">
         </div>
       </div>
     </div>
-    <div id="text-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-100">
-      <div class="grid-100 h-10 v-center">
-        <label for="text-input" class="light-label">Текст</label>
+    <div id="text-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-100 tablet-portrait-h-100 tablet-landscape-h-100">
+      <div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10 mobile-portrait-h-10 mobile-landscape-h-10 tablet-portrait-h-10 tablet-landscape-h-10 v-center">
+        <label for="text-input" class="light-label">Текст *</label>
       </div>
       <textarea id="text-input"></textarea>
     </div>
-    <div id="submit-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10">
-      <div class="grid-10 h-100">
-        <button type="submit" class="light-button grid-100 h-80">Добавить</button>
+    <div id="submit-div" class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10 mobile-portrait-h-10 mobile-landscape-h-20 tablet-portrait-h-10 tablet-landscape-h-10">
+      <div class="grid-10 mobile-portrait-grid-50 mobile-landscape-grid-25 tablet-portrait-grid-20 tablet-landscape-grid-20 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <button type="submit" class="dark-button grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80">Добавить</button>
       </div>
-      <div class="grid-10 h-100">
-        <button class="light-button grid-100 h-80" (click)="goBack()">Отмена</button>
+      <div class="grid-10 mobile-portrait-grid-50 mobile-landscape-grid-25 tablet-portrait-grid-20 tablet-landscape-grid-20 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <button class="light-button grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80" (click)="goBack()">Отмена</button>
+      </div>
+      <div class="grid-10 hide-on-mobile-portrait mobile-landscape-grid-5 tablet-portrait-grid-10 tablet-landscape-grid-10 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 "></div>
+      <div class="grid-70 mobile-portrait-grid-100 mobile-landscape-grid-45 tablet-portrait-grid-50 tablet-landscape-grid-50 h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100 v-center">
+        <div class="error-div grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-80 mobile-portrait-h-80 mobile-landscape-h-80 tablet-portrait-h-80 tablet-landscape-h-80 v-center flex-start" *ngIf="error">
+          {{ error }}
+        </div>
       </div>
     </div>
   </form>
