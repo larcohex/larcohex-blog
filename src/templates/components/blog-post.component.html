@@ -1,4 +1,4 @@
-<div class="w-100 h-95 mobile-portrait-h-100 mobile-landscape-h-95 tablet-portrait-h-95 tablet-landscape-h-95 scrollable-y">
+<div class="w-100 h-95 mobile-portrait-h-100 mobile-landscape-h-95 tablet-portrait-h-95 tablet-landscape-h-95 scrollable-y mobile-portrait-scrollable-y mobile-landscape-scrollable-y tablet-portrait-scrollable-y tablet-landscape-scrollable-y">
   <div class="h-centered w-70" [id]="general.loading ? '' : 'post'">
     <div id="post-header" class="h-centered w-100 vh-65 mobile-portrait-vh-20 mobile-landscape-vh-70 tablet-portrait-vh-30 tablet-landscape-vh-50" [ngStyle]="{'background-image': 'url(' + postRef.img + ')' }">
       <div class="h-center v-center flex-column" [ngClass]="{'darken-bg': !general.loading}">
@@ -12,7 +12,7 @@
     </div>
     <div [innerHTML]="post | safeHtml"></div>
     <div class="w-100 vh-10 mobile-portrait-vh-5 mobile-landscape-vh-10 tablet-portrait-vh-5 tablet-landscape-vh-5 h-center v-bottom" *ngIf="!general.loading">
-      <button class="back-button h-50 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-70 tablet-landscape-h-100" (click)="goBack()">Назад</button>
+      <button id="back-button" class="light-button h-50 w-10 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-70 tablet-landscape-h-100" (click)="goBack()">Назад</button>
     </div>
   </div>
   <div class="h-10 mobile-portrait-h-10 mobile-landscape-h-10 tablet-portrait-h-10 w-100"></div>

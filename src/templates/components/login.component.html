@@ -1,0 +1,29 @@
+<form (ngSubmit)="login()" id="content" class="h-85 mobile-portrait-h-100 mobile-landscape-h-95 tablet-portrait-h-100 tablet-landscape-h-80">
+  <div class="w-100 h-20 mobile-portrait-h-10 mobile-landscape-h-10 tablet-portrait-h-10 tablet-landscape-h-10"></div>
+  <div class="grid-100 h-40 mobile-portrait-h-35 mobile-landscape-h-40 tablet-portrait-h-40 tablet-landscape-h-50 tablet-portrait-grid-100 tablet-landscape-grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100">
+    <blog-logo></blog-logo>
+  </div>
+  <div class="grid-100 h-20 mobile-portrait-h-35 mobile-landscape-h-40 tablet-portrait-h-30 tablet-landscape-h-40 tablet-portrait-grid-100 tablet-landscape-grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100">
+    <div class="grid-35 mobile-portrait-grid-10 mobile-landscape-grid-30 tablet-portrait-grid-25 tablet-landscape-grid-25 h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50"></div>
+    <div class="grid-30 mobile-portrait-grid-80 mobile-landscape-grid-40 tablet-portrait-grid-50 tablet-landscape-grid-50 h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50 h-center v-center">
+      <input type="text" name="email" placeholder="E-mail" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" [(ngModel)]="email" required>
+    </div>
+    <div class="grid-35 mobile-portrait-grid-10 mobile-landscape-grid-30 tablet-portrait-grid-25 tablet-landscape-grid-25 h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50">
+      <div class="v-center h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100" *ngIf="email && validEmail()">
+        <i class="fa fa-check-circle success float-l margin-v-auto margin-h-2" aria-hidden="true"></i>
+      </div>
+      <div class="v-center" *ngIf="email && !validEmail()">
+        <i class="fa fa-times-circle error float-l margin-v-auto margin-h-2" aria-hidden="true"></i>
+        <p id="error-text" class="float-l">Недействительный e-mail</p>
+      </div>
+    </div>
+    <div class="grid-35 mobile-portrait-grid-10 mobile-landscape-grid-30 tablet-portrait-grid-25 tablet-landscape-grid-25 h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50"></div>
+    <div class="grid-30 mobile-portrait-grid-80 mobile-landscape-grid-40 tablet-portrait-grid-50 tablet-landscape-grid-50 h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50 h-center v-center">
+      <input type="password" name="password" placeholder="Пароль" class="form-input-text inline-block w-100 h-60 mobile-portrait-h-40 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-60" [(ngModel)]="password">
+    </div>
+    <div class="grid-35 mobile-portrait-grid-10 mobile-landscape-grid-30 tablet-portrait-grid-25 tablet-landscape-grid-25 h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50"></div>
+  </div>
+  <div class="w-100 h-20 mobile-portrait-h-10 mobile-landscape-h-10 tablet-portrait-h-10 tablet-landscape-h-20 v-center h-center">
+    <button type="submit" id="login-button" class="light-button w-10 h-50 mobile-portrait-h-80 mobile-landscape-h-100 tablet-portrait-h-70 tablet-landscape-h-50" [disabled]="!email || !validEmail() || !password"><span>Войти</span></button>
+  </div>
+</form>

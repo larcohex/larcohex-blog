@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { GeneralService } from "../services/general.service";
 import { animate, state, style, transition, trigger } from "@angular/animations";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   moduleId: module.id,
@@ -27,8 +28,8 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
       transition ("initial => right", animate ("300ms ease-in")),
       transition ("left => initial", animate ("300ms ease-in")),
       transition ("right => initial", animate ("300ms ease-in")),
-      transition ("left => right", animate ("0")),
-      transition ("right => left", animate ("0"))
+      transition ("left => right", animate ("0ms")),
+      transition ("right => left", animate ("0ms"))
     ]),
   ]
 })
@@ -38,8 +39,15 @@ export class OlympiadListComponent {
   item: number = 0;
   state: String = "initial";
 
-  constructor (general: GeneralService) {
+  constructor (
+    general: GeneralService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.general = general;
+    this.route.queryParams.subscribe ((params) => {
+      this.item = +params["subject"] || 0;
+    });
   }
 
   prev(): void {
@@ -49,6 +57,7 @@ export class OlympiadListComponent {
       this.state = "left";
       setTimeout (function() {
         this.state = "initial";
+        this.router.navigate([], { queryParams: { subject: this.item } });
       }.bind (this), 0)
     }.bind (this), 300);
   }
@@ -60,6 +69,7 @@ export class OlympiadListComponent {
       this.state = "right";
       setTimeout (function() {
         this.state = "initial";
+        this.router.navigate([], { queryParams: { subject: this.item } });
       }.bind (this), 0)
     }.bind (this), 300);
   }

@@ -1,0 +1,7 @@
+<blog-loading *ngIf='general.loading'></blog-loading>
+<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-10 mobile-portrait-h-10 mobile-landscape-h-15 tablet-portrait-h-10 tablet-landscape-h-10 v-center flex-end">
+  <button class="inline-block float-r light-button margin-right-10 h-70 mobile-portrait-h-70 mobile-landscape-h-70 tablet-portrait-h-70 tablet-landscape-h-70 grid-10 mobile-portrait-grid-33 mobile-landscape-grid-15 tablet-portrait-grid-15 tablet-landscape-grid-10" (click)="logout()" *ngIf="!general.loading">Выйти</button>
+</div>
+<div class="grid-100 mobile-portrait-grid-100 mobile-landscape-grid-100 tablet-portrait-grid-100 tablet-landscape-grid-100 h-90 mobile-portrait-h-90 mobile-landscape-h-85 tablet-portrait-h-90 tablet-landscape-h-90">
+  <router-outlet></router-outlet>
+</div>
