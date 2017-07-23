@@ -1,3 +1,3 @@
-# larcohex.github.io
+# larcohex.herokuapp.com
 
-Portfolio
+Blog-portfolio done in Angular 4

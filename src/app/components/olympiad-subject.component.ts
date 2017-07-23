@@ -1,10 +1,10 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component } from "@angular/core";
 import { Location }                 from '@angular/common';
 import { GeneralService } from "../services/general.service";
-import { ActivatedRoute, Params } from "@angular/router";
-import { Meta } from "@angular/platform-browser";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { AngularFireDatabase } from "angularfire2/database";
 declare let converter:any;
+declare let FB:any;
 
 @Component({
   moduleId: module.id,
@@ -15,16 +15,17 @@ declare let converter:any;
   ]
 })
 
-export class OlympiadSubjectComponent implements OnDestroy {
+export class OlympiadSubjectComponent {
   post: string = "";
+  img: string = "";
   general: GeneralService;
   subject: String;
 
   constructor (
     private route: ActivatedRoute,
+    private router: Router,
     private db: AngularFireDatabase,
     private location: Location,
-    private meta: Meta,
     general: GeneralService
   ) {
     this.general = general;
@@ -32,12 +33,14 @@ export class OlympiadSubjectComponent implements OnDestroy {
     this.route.params.subscribe((params: Params) => {
       this.subject = params["subject"];
       this.db.object ("/olympiad/" + params["subject"]).subscribe((post) => {
+        if (post.hasOwnProperty("$value") && !post["$value"]) {
+          this.general.loading = false;
+          this.router.navigate (["/404"]);
+          return;
+        }
         this.post = converter.makeHtml (post.text);
+        this.img = post.img;
         this.general.loading = false;
-        this.meta.updateTag({ name: "og:url", content: window.location.href });
-        this.meta.updateTag({ name: "og:title", content: this.subjectName() });
-        this.meta.updateTag({ name: "og:description", content: "Материал для подготовки к олимпиаде" });
-        this.meta.updateTag({ name: "og:image", content: post.img });
       });
     });
   }
@@ -59,14 +62,22 @@ export class OlympiadSubjectComponent implements OnDestroy {
     }
   }
 
-  goBack(): void {
-    this.location.back();
+  shareFB(): void {
+    FB.ui({
+      method: "share",
+      href: window.location.href
+    }, function(response){});
   }
 
-  ngOnDestroy(): void {
-    this.meta.updateTag({ name: "og:url", content: "larcohex.github.io" });
-    this.meta.updateTag({ name: "og:title", content: "Larcohex"});
-    this.meta.updateTag({ name: "og:description", content: "Блог-портфолио" });
-    this.meta.updateTag({ name: "og:image", content: "https://raw.githubusercontent.com/larcohex/larcohex.github.io/develop/src/assets/images/background/background.jpg" });
+  shareTwitter(): void {
+    window.open ("https://twitter.com/intent/tweet?text=" + this.subjectName() + "&url=" + window.location.href, "Твитнуть", "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=480,height:360");
+  }
+
+  shareVK(): void {
+    window.open ("https://vk.com/share.php?title=" + this.subjectName() + "&url=" + window.location.href + "&img=" + this.img, "Поделиться", "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=480,height:360");
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

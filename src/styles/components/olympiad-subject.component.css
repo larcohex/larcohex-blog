@@ -55,3 +55,23 @@
     width: 15%;
   }
 }
+
+
+.hvr-focus, .hvr-focus:active, .hvr-focus:focus, .hvr-focus:hover
+{
+  transition: opacity .2s ease-out;
+  -moz-transition: opacity .2s ease-out;
+  -webkit-transition: opacity .2s ease-out;
+  -o-transition: opacity .2s ease-out;
+}
+
+.hvr-focus
+{
+  opacity: 0.5;
+}
+
+.hvr-focus:active, .hvr-focus:focus, .hvr-focus:hover
+{
+  opacity: 1;
+  cursor: pointer;
+}
