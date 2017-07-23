@@ -13,6 +13,20 @@
       </div>
     </div>
     <div [innerHTML]="post | safeHtml"></div>
+    <div class="w-100 vh-20 mobile-portrait-vh-20 mobile-landscape-vh-40 tablet-portrait-vh-15 tablet-landscape-vh-20 h-center v-center flex-column" *ngIf="!general.loading">
+      <h2 class="h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50">Поделиться</h2>
+      <div class="grid-50 mobile-portrait-grid-100 mobile-landscape-grid-80 tablet-portrait-grid-75 tablet-landscape-grid-50 h-50 mobile-portrait-h-50 mobile-landscape-h-50 tablet-portrait-h-50 tablet-landscape-h-50">
+        <a class="inline-block h-100 mobile-portrait-h-70 mobile-landscape-h-80 tablet-portrait-h-70 tablet-landscape-h-70 hvr-focus pointer" (click)="shareFB();" target="_blank">
+          <img class="block h-centered h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100" src="../assets/images/vendor/facebook/facebook_logo.svg">
+        </a>
+        <a class="inline-block h-100 mobile-portrait-h-70 mobile-landscape-h-80 tablet-portrait-h-70 tablet-landscape-h-70 hvr-focus pointer" (click)="shareTwitter();" target="_blank">
+          <img class="block h-centered h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100" src="../assets/images/vendor/twitter/twitter_logo.svg">
+        </a>
+        <a class="inline-block h-100 mobile-portrait-h-70 mobile-landscape-h-80 tablet-portrait-h-70 tablet-landscape-h-70 hvr-focus pointer" (click)="shareVK();" target="_blank">
+          <img class="block h-centered h-100 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-100 tablet-landscape-h-100" src="../assets/images/vendor/vk/vk_logo.svg">
+        </a>
+      </div>
+    </div>
     <div class="w-100 vh-10 mobile-portrait-vh-5 mobile-landscape-vh-10 tablet-portrait-vh-5 tablet-landscape-vh-5 h-center v-bottom" *ngIf="!general.loading">
       <button id="back-button" class="dark-button w-10 h-50 mobile-portrait-h-100 mobile-landscape-h-100 tablet-portrait-h-70 tablet-landscape-h-100" (click)="goBack()">Назад</button>
     </div>

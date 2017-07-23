@@ -1,10 +1,10 @@
 import { Component, OnDestroy } from "@angular/core";
 import { GeneralService }           from "../services/general.service";
-import { ActivatedRoute, Params }   from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Location }                 from '@angular/common';
-import { Meta } from "@angular/platform-browser";
 import { AngularFireDatabase } from "angularfire2/database";
 declare let converter:any;
+declare let FB:any;
 
 @Component({
   moduleId: module.id,
@@ -14,7 +14,7 @@ declare let converter:any;
     "../../styles/components/blog-post.component.css"
   ]
 })
-export class BlogPostComponent implements OnDestroy {
+export class BlogPostComponent {
   post: string = "";
   postRef = {
     img: "",
@@ -22,37 +22,47 @@ export class BlogPostComponent implements OnDestroy {
     title: ""
   };
   general: GeneralService;
+  currentUrl: string = window.location.href;
 
   constructor (
     private route: ActivatedRoute,
+    private router: Router,
     private db: AngularFireDatabase,
     private location: Location,
-    private meta: Meta,
     general: GeneralService
   ) {
     this.general = general;
     this.general.loading = true;
     this.route.params.subscribe((params: Params) => this.db.object ("/posts/" + params["ref"]).subscribe((post) => {
+      if (post.hasOwnProperty("$value") && !post["$value"]) {
+        this.general.loading = false;
+        this.router.navigate (["/404"]);
+        return;
+      }
       this.post = converter.makeHtml (post.text);
       this.db.object ("/postrefs/" + post.id).subscribe((postRef) => {
         this.postRef = postRef;
-        this.meta.updateTag({ name: "og:url", content: window.location.href });
-        this.meta.updateTag({ name: "og:title", content: postRef.title});
-        this.meta.updateTag({ name: "og:description", content: postRef.subtitle });
-        this.meta.updateTag({ name: "og:image", content: postRef.img });
         this.general.loading = false;
       });
     }));
   }
 
-  goBack(): void {
-    this.location.back();
+  shareFB(): void {
+    FB.ui({
+      method: "share",
+      href: window.location.href
+    }, function(response){});
   }
 
-  ngOnDestroy(): void {
-    this.meta.updateTag({ name: "og:url", content: "larcohex.github.io" });
-    this.meta.updateTag({ name: "og:title", content: "Larcohex"});
-    this.meta.updateTag({ name: "og:description", content: "Блог-портфолио" });
-    this.meta.updateTag({ name: "og:image", content: "https://raw.githubusercontent.com/larcohex/larcohex.github.io/develop/src/assets/images/background/background.jpg" });
+  shareTwitter(): void {
+    window.open ("https://twitter.com/intent/tweet?text=" + this.postRef.title + "&url=" + window.location.href, "Твитнуть", "width=480,height:360");
+  }
+
+  shareVK(): void {
+    window.open ("https://vk.com/share.php?title=" + this.postRef.title + "&url=" + window.location.href + "&img=" + this.postRef.img, "Поделиться", "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=480,height:360");
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
