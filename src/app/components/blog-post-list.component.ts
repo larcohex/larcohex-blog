@@ -92,4 +92,10 @@ export class BlogPostListComponent {
       }.bind (this), 500);
     }
   }
+
+  onChange(): void {
+    setTimeout (function() {
+      this.state = "initial";
+    }.bind (this), 1);
+  }
 }
