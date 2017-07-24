@@ -45,6 +45,11 @@ app.use (express.static(__dirname + "/dist"));
 app.set ("view engine", "jade");
 app.listen (process.env.PORT || 8080);
 
+app.get ("/robots.txt", function (req, res) {
+  res.type ("text/plain");
+  res.sendFile (path.join (__dirname + "/robots.txt"));
+});
+
 app.get ("/olympiad/:subject", function (req, res) {
   if (["math", "physics", "chemistry", "biology", "cs"].indexOf (req.params.subject) > -1) {
     if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot")) {
