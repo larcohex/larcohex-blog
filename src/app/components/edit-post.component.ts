@@ -34,6 +34,7 @@ export class EditPostComponent implements AfterViewInit {
   fullPost: boolean = false;
   disposable: any;
   error: string = "";
+  img: string = "";
 
   constructor (
     private route: ActivatedRoute,
@@ -52,6 +53,7 @@ export class EditPostComponent implements AfterViewInit {
         this.firePost = this.db.object ("/olympiad/" + params["name"]);
         this.firePost.subscribe ((post) => {
           this.general.loading = false;
+          this.img = post.img;
           this.deferred.resolve (post.text);
         });
       }
@@ -91,21 +93,23 @@ export class EditPostComponent implements AfterViewInit {
 
   editPost(): void {
     this.error = "";
-    if (["math", "physics", "chemistry", "biology", "cs", "new"].indexOf (this.postRef.ref) > -1) {
-      this.error = "Недопустимая ссылка";
-      return;
-    }
-    if (!this.postRef.title) {
-      this.error = "Пожалуйста, введите название";
-      return;
-    }
-    if (!this.postRef.ref) {
-      this.error = "Пожалуйста, введите ссылку";
-      return;
-    }
-    if (!this.editor.value()) {
-      this.error = "Пожалуйста, введите текст";
-      return;
+    if (this.fullPost) {
+      if (["math", "physics", "chemistry", "biology", "cs", "new"].indexOf (this.postRef.ref) > -1) {
+        this.error = "Недопустимая ссылка";
+        return;
+      }
+      if (!this.postRef.title) {
+        this.error = "Пожалуйста, введите название";
+        return;
+      }
+      if (!this.postRef.ref) {
+        this.error = "Пожалуйста, введите ссылку";
+        return;
+      }
+      if (!this.editor.value()) {
+        this.error = "Пожалуйста, введите текст";
+        return;
+      }
     }
     if (this.newImg) {
       let storageRef = firebase.storage().ref();
@@ -243,7 +247,7 @@ export class EditPostComponent implements AfterViewInit {
         });
       }
       else {
-        this.firePost.set (this.editor.value()).then (() => {
+        this.firePost.set ({text: this.editor.value(), img: this.img}).then (() => {
           this.goBack();
         }, (error) => {
           this.error = error.message;
