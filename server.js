@@ -96,7 +96,7 @@ app.get ("/blog/:post", function (req, res) {
 
 app.get ("/404", function (req, res) {
   if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot") || req.headers["user-agent"].startsWith ("Googlebot")) {
-    res.render("olympiad-seo", {
+    res.render("seo", {
       url: "https://larcohex.herokuapp.com/404",
       title: "Не найдено",
       description: "Запрошенная страница не найдена"
@@ -107,7 +107,15 @@ app.get ("/404", function (req, res) {
   }
 });
 
-
 app.get ("/*", function (req, res) {
-  res.sendFile (path.join (__dirname + "/dist/index.html"));
+  if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot") || req.headers["user-agent"].startsWith ("Googlebot")) {
+    res.render("seo", {
+      url: "https://larcohex.herokuapp.com/",
+      title: "Larcohex",
+      description: "Блог-портфолио"
+    });
+  }
+  else {
+    res.sendFile (path.join (__dirname + "/dist/index.html"));
+  }
 });
