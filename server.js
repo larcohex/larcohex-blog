@@ -52,7 +52,7 @@ app.get ("/robots.txt", function (req, res) {
 
 app.get ("/olympiad/:subject", function (req, res) {
   if (["math", "physics", "chemistry", "biology", "cs"].indexOf (req.params.subject) > -1) {
-    if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot")) {
+    if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot") || req.headers["user-agent"].startsWith ("Googlebot")) {
       firebase.database().ref("/olympiad/" + req.params.subject).once("value", function (snapshot) {
         res.render("seo", {
           url: "https://larcohex.herokuapp.com/olympiad/" + req.params.subject,
@@ -74,7 +74,7 @@ app.get ("/olympiad/:subject", function (req, res) {
 app.get ("/blog/:post", function (req, res) {
   firebase.database().ref ("/posts/" + req.params.post).once ("value", function (snapshot) {
     if (snapshot.val()) {
-      if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot")) {
+      if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot") || req.headers["user-agent"].startsWith ("Googlebot")) {
         firebase.database().ref("/postrefs/" + snapshot.val().id).once("value", function (sn) {
           res.render("seo", {
             url: "https://larcohex.herokuapp.com/blog/" + req.params.post,
@@ -95,7 +95,7 @@ app.get ("/blog/:post", function (req, res) {
 });
 
 app.get ("/404", function (req, res) {
-  if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot")) {
+  if (req.headers["user-agent"].startsWith ("facebookexternalhit/1.1") || req.headers["user-agent"] === "Facebot" || req.headers["user-agent"].startsWith ("Twitterbot") || req.headers["user-agent"].startsWith ("Googlebot")) {
     res.render("olympiad-seo", {
       url: "https://larcohex.herokuapp.com/404",
       title: "Не найдено",
